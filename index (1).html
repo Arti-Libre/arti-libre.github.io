@@ -1,0 +1,2437 @@
+<html><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style id="st_globalStyles">
+/* SCROLLBAR */
+
+[dark-scroll]::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[dark-scroll]::-webkit-scrollbar-track-piece {
+  background-color: #2b2b2b;
+  border: 1px solid #1d1d1d;
+}
+
+[dark-scroll]::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: #4d4d4d;
+}
+[dark-scroll]::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5a5a;
+}
+
+/* LOAD PROGRESS */
+
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: #ff6250;
+}
+
+/* GROUPING */
+
+[data-id].ui-selecting {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+[data-id].ui-selected {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+
+/* CURSOR */
+
+body[mode='comments'] * {
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjkxNjQ4IDIzLjQxMDlDNS40OTE1MyAyMi45ODg3IDUuOTMxNzkgMjIuMzkzNSA2LjIzMjggMjEuNjQwN0M0Ljc5MDY5IDE5LjczODMgNCAxNy4zOTMzIDQgMTQuOTk3NUM0IDguOTM0MSA4LjkzMjgyIDQgMTUuMDAyMiA0QzIxLjA3MTcgNCAyNiA4LjkzOTE5IDI2IDE1LjAwMjVDMjYgMjEuMDY1OSAyMS4wNjcyIDI2IDE0Ljk5NzggMjZDMTIuOTg5NiAyNiAxMS4wMzUzIDI1LjQ1NTcgOS4zMjM2NyAyNC40MjMxQzguNDI5NjUgMjQuOTU3MiA3LjQxNDM0IDI1LjIyNjggNi4zMDAxOCAyNS4yMjY4QzUuOTU0MjYgMjUuMjI2OCA1LjU5OTM1IDI1LjIwMTQgNS4yNTM0MiAyNS4xNDU0QzQuOTAzIDI1LjA4OTUgNC42Mjg5NiAyNC44MDQ2IDQuNTUyNTggMjQuNDE4QzQuNDc2MjEgMjQuMDI2NCA0LjYxOTk3IDIzLjYyOTYgNC45MTY0OCAyMy40MTA5WiIgZmlsbD0iI0ZGNjI1MCIvPgo8L3N2Zz4K')
+      0 24,
+    auto !important;
+}
+
+body[mode='code'] [data-id]:not(.hidden) {
+  cursor: default;
+}
+
+/* default node state */
+
+body[mode='code'] [data-id]:not(.hidden), body[mode='comments'] [data-id]:not(.hidden) {
+  pointer-events: all;
+}
+
+/* is_image */
+
+body[mode='code'] [data-id].is_image [data-id], body[mode='comments'] [data-id].is_image [data-id] {
+  pointer-events: none !important;
+}
+
+/* without a data-id or ignored */
+
+[data-id].ignore,body[mode='code'] *:not([data-id]) {
+  pointer-events: none !important;
+}
+/* disable transforms for ignored elements */
+
+
+body[mode='code'] [data-id]:hover{
+  transform: none !important;
+}
+
+div[class^='i-o-sparts']{
+  pointer-events: none !important;
+}
+
+</style><meta charset="utf-8"><meta name="viewport" content="width=1440, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><script id="anima-hotspots-script" src="hotspots.js"></script><style id="hotspots-styles">
+    .hotspot {
+      position: absolute;
+      border: 1px solid #2a9fd8;
+      background: rgba(0, 173, 255, 0.54);
+      opacity: 0;
+      z-index: -1;
+      pointer-events:none;
+    }
+  </style><style id="hide-styles">
+    .hotspot {
+      display:none !important;
+    }
+  </style><script id="s_turbo" src="https://animaapp.s3.amazonaws.com/static/turbo.es2017-umd.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><script id="anime-js-script" src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js" integrity="sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=" crossorigin="anonymous"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Inter:500,400,700,600|Montserrat:400");
+
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/65d091b76874a4ca3e864b5e.65d091b76874a4ca3e864b61.60Kphk5.hch.png");
+
+
+.screen textarea:focus,
+.screen input:focus {
+  outline: none;
+}
+
+.screen * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.screen div {
+  -webkit-text-size-adjust: none;
+}
+
+.component-wrapper a {
+  display: contents;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.component-wrapper * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+  pointer-events: auto;
+}
+
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+  visibility: hidden !important;
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.full-width-a {
+  width: 100%;
+}
+
+.full-height-a {
+  height: 100%;
+}
+
+.container-center-vertical {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container-center-vertical > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.auto-animated div {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated input {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+  opacity: 1;
+}
+
+.overlay-base {
+  display: none;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.overlay-base.animate-appear {
+  align-items: center;
+  animation: reveal 0.3s ease-in-out 1 normal forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.overlay-base.animate-disappear {
+  animation: reveal 0.3s ease-in-out 1 reverse forwards;
+  display: block;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.overlay-base.animate-disappear * {
+  pointer-events: none;
+}
+
+@keyframes reveal {
+  from { opacity: 0 }
+ to { opacity: 1 }
+}
+
+.animate-nodelay {
+  animation-delay: 0s;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-flex-center {
+  align-self: flex-center;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.valign-text-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+input:focus {
+  outline: none;
+}
+
+.listeners-active,
+.listeners-active * {
+  pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.smart-layers-pointers,
+.smart-layers-pointers * {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root { 
+  --black: #000000;
+  --brandprimary: #4caf4f;
+  --brandsecondary: #263238;
+  --default--white: #ffffff;
+  --neutralblack: #263238;
+  --neutraldgrey: #4d4d4d;
+  --neutralgrey: #717171;
+  --neutrallgrey: #88939e;
+  --neutralsilver: #f5f7f9;
+  --neutralwhite: #ffffff;
+  --text--gray-300: #d9dbe1;
+  --text--gray-900: #18191f;
+  --tintt5: #e8f5e9;
+ 
+  --font-size-l: 16px;
+  --font-size-m: 14px;
+  --font-size-s: 8.1px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 28px;
+  --font-size-xxxl: 36px;
+  --font-size-xxxxl: 64px;
+ 
+  --font-family-inter: "Inter", Helvetica;
+  --font-family-montserrat: "Montserrat", Helvetica;
+}
+.headingheadline-1 {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxxxl);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+
+.headingheadline-2 {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+
+.headingheadline-3 {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+
+.headingheadline-4 {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+
+.bodyregularbody-2 {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+
+.bodyregularbody-3 {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+
+.bodymediumbody-2 {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+
+.bodymediumbody-3 {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+
+:root {
+}
+
+
+/* screen - landing-page */
+
+.landing-page {
+  background-color: var(--default--white);
+  height: 4376px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1440px;
+}
+
+.landing-page .home-0MUxxh {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 40px;
+  left: 0px;
+  position: absolute;
+  top: 84px;
+}
+
+.landing-page .hero-section-AVfXY2 {
+  align-items: center;
+  align-self: stretch;
+  background-color: var(--neutralsilver);
+  display: flex;
+  flex: 0 0 auto;
+  gap: 104px;
+  padding: 96px 144px;
+  position: relative;
+  width: 100%;
+}
+
+.landing-page .frame-1-hEKUTd {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 32px;
+  position: relative;
+}
+
+.landing-page .text-lTLpwB {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.landing-page .title-OC4U6j {
+  align-self: stretch;
+  background-color: transparent;
+  color: transparent;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 76px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+}
+
+.landing-page .where-to-grow-your-b-OC4U6j {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--neutralgrey);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  position: relative;
+  text-align: left;
+}
+
+.landing-page .button-lTLpwB {
+  background-color: var(--brandprimary);
+  border-radius: 4px;
+  gap: 10px;
+  justify-content: center;
+  padding: 14px 32px;
+}
+
+.landing-page .label-BAiyLT {
+  color: var(--default--white);
+  font-weight: 500;
+  margin-top: -1.00px;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .illustration-hEKUTd {
+  background-color: transparent;
+  height: 407px;
+  position: relative;
+  width: 391px;
+}
+
+.landing-page .clients-AVfXY2 {
+  gap: 16px;
+  padding: 0px 144px;
+  width: 1440px;
+}
+
+.landing-page .clients-akNU3k {
+  gap: 8px;
+  width: 1110px;
+}
+
+.landing-page .section-title-fx3aFJ {
+  align-self: stretch;
+  color: var(--neutraldgrey);
+  text-align: center;
+}
+
+.landing-page .description-fx3aFJ {
+  align-self: stretch;
+  color: var(--neutralgrey);
+  text-align: center;
+}
+
+.landing-page .clients-logos-akNU3k {
+  align-self: stretch;
+  background-color: transparent;
+  height: 98px;
+  margin-right: -4.00px;
+  position: relative;
+  width: 100%;
+}
+
+.landing-page .community-AVfXY2 {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 16px;
+}
+
+.landing-page .community-lVM8O4 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  width: 1440px;
+}
+
+.landing-page .section-title-1h0xPB {
+  color: var(--neutraldgrey);
+  text-align: center;
+  width: 542px;
+}
+
+.landing-page .description-1h0xPB {
+  align-self: stretch;
+  color: var(--neutralgrey);
+  text-align: center;
+}
+
+.landing-page .frame-4-lVM8O4 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  padding: 0px 144px;
+  position: relative;
+  width: 1440px;
+}
+
+.landing-page .membership-organizatios-pRVKiG {
+  align-items: center;
+  background-color: var(--default--white);
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px #abbed133;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 32px;
+  position: relative;
+  width: 299px;
+}
+
+.landing-page .icon-IKZ7mN {
+  background-color: transparent;
+  height: 56px;
+  position: relative;
+  width: 65.00000762939453px;
+}
+
+.landing-page .icon-yYeHuu {
+  background-color: transparent;
+  height: 48px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 48px;
+}
+
+.landing-page .membership-organisations-IKZ7mN {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--neutraldgrey);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  position: relative;
+  text-align: center;
+}
+
+.landing-page .frame-3-VJt7Y1 {
+  margin-left: -8.00px;
+  margin-right: -8.00px;
+}
+
+.landing-page .our-membership-manag-hZl0DP {
+  width: 251px;
+}
+
+.landing-page .national-associations-pRVKiG {
+  align-items: center;
+  background-color: var(--default--white);
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px #abbed133;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 32px;
+  position: relative;
+  width: 299px;
+}
+
+.landing-page .icon-APXYum {
+  background-color: transparent;
+  height: 56px;
+  position: relative;
+  width: 65.00000762939453px;
+}
+
+.landing-page .icon-3pWxa7 {
+  background-color: transparent;
+  height: 48px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 48px;
+}
+
+.landing-page .national-associations-APXYum {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--neutraldgrey);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  position: relative;
+  text-align: center;
+}
+
+.landing-page .frame-3-vZbT7w {
+  margin-left: -2.50px;
+  margin-right: -2.50px;
+}
+
+.landing-page .our-membership-manag-XqMQBi {
+  width: 240px;
+}
+
+.landing-page .national-associations-kl4opG {
+  align-items: center;
+  background-color: var(--default--white);
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px #abbed133;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 32px;
+  position: relative;
+  width: 299px;
+}
+
+.landing-page .icon-ppjiiN {
+  background-color: transparent;
+  height: 56px;
+  position: relative;
+  width: 65.00000762939453px;
+}
+
+.landing-page .icon-3OwWDf {
+  background-color: transparent;
+  height: 48px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 48px;
+}
+
+.landing-page .clubs-and-groups-ppjiiN {
+  background-color: transparent;
+  color: var(--neutraldgrey);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  position: relative;
+  text-align: center;
+  width: 231px;
+}
+
+.landing-page .frame-3-Va6OYH {
+  margin-left: -8.00px;
+  margin-right: -8.00px;
+}
+
+.landing-page .our-membership-manag-yxR2t6 {
+  width: 251px;
+}
+
+.landing-page .body-0MUxxh {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 48px;
+  justify-content: center;
+  left: 1px;
+  position: absolute;
+  top: 1411px;
+}
+
+.landing-page .unlock-Z85P74::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
+.landing-page .unlock-Z85P74 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.landing-page .unlock-nuXLgd {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 144px;
+  width: 1440px;
+}
+
+.landing-page .frame-35-98tWGb {
+  background-color: transparent;
+  height: 433px;
+  position: relative;
+  width: 442px;
+}
+
+.landing-page .the-unseen-of-spendi-jikXn6 {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--neutraldgrey);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 44px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+}
+
+.landing-page .when-joining-the-jus-jikXn6 {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--neutralgrey);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+}
+
+.landing-page .button-EHNx4H {
+  background-color: var(--brandprimary);
+  border-radius: 4px;
+  gap: 10px;
+  justify-content: center;
+  padding: 14px 32px;
+}
+
+.landing-page .label-xcb9OH {
+  color: var(--default--white);
+  font-weight: 500;
+  margin-top: -1.00px;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .achievements-Z85P74 {
+  align-items: center;
+  background-color: var(--neutralsilver);
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  padding: 64px 144px;
+  position: relative;
+  width: 1440px;
+}
+
+.landing-page .section-heading-GbOn8M {
+  display: flex;
+  width: 540px;
+}
+
+.landing-page .section-heading-6zReXN {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.landing-page .section-title-0Pzx9a {
+  color: transparent;
+  text-align: left;
+  width: 408px;
+}
+
+.landing-page .description-6zReXN {
+  align-self: stretch;
+  color: var(--text--gray-900);
+  text-align: left;
+}
+
+.landing-page .counts-GbOn8M {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .row-1-dJNItk {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .x2-dxERhH {
+  gap: 16px;
+}
+
+.landing-page .icon-fZbIWb {
+  background-color: transparent;
+  height: 48px;
+  position: relative;
+  width: 48px;
+}
+
+.landing-page .label-Xbg8jd {
+  color: var(--neutralgrey);
+  font-weight: 400;
+  text-align: left;
+  width: 191px;
+}
+
+.landing-page .x1-dxERhH {
+  gap: 16px;
+}
+
+.landing-page .icon-EpJT3M {
+  background-color: transparent;
+  height: 48px;
+  position: relative;
+  width: 48px;
+}
+
+.landing-page .label-3xad0e {
+  color: var(--neutralgrey);
+  font-weight: 400;
+  text-align: left;
+  width: 191px;
+}
+
+.landing-page .row-2-dJNItk {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .x3-xxL5KI {
+  gap: 16px;
+}
+
+.landing-page .icon-b7whjn {
+  background-color: transparent;
+  height: 48px;
+  position: relative;
+  width: 48px;
+}
+
+.landing-page .label-4eWY3u {
+  color: var(--neutralgrey);
+  font-weight: 400;
+  text-align: left;
+  width: 191px;
+}
+
+.landing-page .x4-xxL5KI {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  position: relative;
+}
+
+.landing-page .icon-Fn3TTJ {
+  background-color: transparent;
+  height: 48px;
+  position: relative;
+  width: 48px;
+}
+
+.landing-page .label-hMeUNu {
+  color: var(--neutralgrey);
+  font-weight: 400;
+  text-align: left;
+  width: 191px;
+}
+
+.landing-page .logo-Z85P74 {
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+}
+
+.landing-page .icon-YrtfHk {
+  background-color: transparent;
+  height: 24.00000762939453px;
+  position: relative;
+  width: 35px;
+}
+
+.landing-page .nexcent-YrtfHk {
+  height: 20.66193389892578px;
+  width: 111.49041748046875px;
+}
+
+.landing-page .calender-Z85P74::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
+.landing-page .calender-Z85P74 {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  position: relative;
+}
+
+.landing-page .unlock-u8fE6T {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 144px;
+  width: 1440px;
+}
+
+.landing-page .mobile-loginpana-mkVAso {
+  background-color: transparent;
+  height: 433.3990173339844px;
+  position: relative;
+  width: 441.5328674316406px;
+}
+
+.landing-page .background-complete-wTcvor {
+  background-color: transparent;
+  height: 381px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 442px;
+}
+
+.landing-page .background-simple-wTcvor {
+  background-color: transparent;
+  height: 298px;
+  left: 48px;
+  position: absolute;
+  top: 88px;
+  width: 320px;
+}
+
+.landing-page .floor-wTcvor {
+  background-color: transparent;
+  height: 1px;
+  left: 56px;
+  position: absolute;
+  top: 433px;
+  width: 321px;
+}
+
+.landing-page .plant-wTcvor {
+  background-color: transparent;
+  height: 148px;
+  left: 287px;
+  position: absolute;
+  top: 196px;
+  width: 86px;
+}
+
+.landing-page .padlock-wTcvor {
+  background-color: transparent;
+  height: 103px;
+  left: 282px;
+  position: absolute;
+  top: 5px;
+  width: 86px;
+}
+
+.landing-page .device-wTcvor {
+  background-color: transparent;
+  height: 345px;
+  left: 163px;
+  position: absolute;
+  top: 51px;
+  width: 158px;
+}
+
+.landing-page .vector-c9q7ec {
+  height: 304px;
+  left: 0px;
+  top: 0px;
+  width: 149px;
+}
+
+.landing-page .vector-l0yfO6 {
+  height: 284px;
+  left: 7px;
+  top: 9px;
+  width: 136px;
+}
+
+.landing-page .vector-71EVwd {
+  height: 24px;
+  left: 35px;
+  top: 236px;
+  width: 80px;
+}
+
+.landing-page .sing-up-c9q7ec {
+  background-color: transparent;
+  color: #e8e8e3;
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-s);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 57px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 242px;
+  width: 99px;
+}
+
+.landing-page .vector-kT9Xma {
+  height: 5px;
+  left: 25px;
+  top: 84px;
+  width: 27px;
+}
+
+.landing-page .vector-dLGsOZ {
+  height: 5px;
+  left: 25px;
+  top: 84px;
+  width: 27px;
+}
+
+.landing-page .vector-suxNea {
+  height: 18px;
+  left: 25px;
+  top: 95px;
+  width: 107px;
+}
+
+.landing-page .vector-BQchXC {
+  height: 5px;
+  left: 33px;
+  top: 101px;
+  width: 49px;
+}
+
+.landing-page .vector-QbIF1Y {
+  height: 5px;
+  left: 33px;
+  top: 101px;
+  width: 49px;
+}
+
+.landing-page .vector-ckMzgX {
+  height: 5px;
+  left: 25px;
+  top: 128px;
+  width: 27px;
+}
+
+.landing-page .vector-WJ6xSL {
+  height: 5px;
+  left: 25px;
+  top: 128px;
+  width: 27px;
+}
+
+.landing-page .vector-hanE9o {
+  height: 18px;
+  left: 24px;
+  top: 140px;
+  width: 107px;
+}
+
+.landing-page .vector-RpRO6s {
+  height: 5px;
+  left: 25px;
+  top: 174px;
+  width: 27px;
+}
+
+.landing-page .vector-PLUrOU {
+  height: 5px;
+  left: 25px;
+  top: 174px;
+  width: 27px;
+}
+
+.landing-page .vector-2ieKmv {
+  height: 18px;
+  left: 24px;
+  top: 186px;
+  width: 107px;
+}
+
+.landing-page .vector-DxLx0T {
+  height: 5px;
+  left: 32px;
+  top: 147px;
+  width: 49px;
+}
+
+.landing-page .vector-cEeSN7 {
+  height: 5px;
+  left: 32px;
+  top: 147px;
+  width: 49px;
+}
+
+.landing-page .vector-sboQ5f {
+  height: 4px;
+  left: 32px;
+  top: 194px;
+  width: 4px;
+}
+
+.landing-page .vector-zEtMJa {
+  height: 5px;
+  left: 39px;
+  top: 194px;
+  width: 4px;
+}
+
+.landing-page .vector-ymkgUA {
+  height: 4px;
+  left: 45px;
+  top: 194px;
+  width: 4px;
+}
+
+.landing-page .vector-6HDlRn {
+  height: 4px;
+  left: 52px;
+  top: 194px;
+  width: 4px;
+}
+
+.landing-page .vector-VPhzjf {
+  height: 4px;
+  left: 58px;
+  top: 194px;
+  width: 4px;
+}
+
+.landing-page .vector-9xN2rl {
+  height: 4px;
+  left: 65px;
+  top: 194px;
+  width: 4px;
+}
+
+.landing-page .vector-lJybrD {
+  height: 5px;
+  left: 72px;
+  top: 194px;
+  width: 4px;
+}
+
+.landing-page .vector-64CapB {
+  height: 4px;
+  left: 78px;
+  top: 194px;
+  width: 4px;
+}
+
+.landing-page .vector-xH7cQc {
+  height: 4px;
+  left: 85px;
+  top: 194px;
+  width: 4px;
+}
+
+.landing-page .group-c9q7ec {
+  background-color: transparent;
+  height: 5px;
+  left: 32px;
+  position: absolute;
+  top: 194px;
+  width: 57px;
+}
+
+.landing-page .vector-lpYENf {
+  height: 15px;
+  left: 71px;
+  top: 39px;
+  width: 14px;
+}
+
+.landing-page .vector-B0BZKj {
+  height: 15px;
+  left: 71px;
+  top: 39px;
+  width: 14px;
+}
+
+.landing-page .vector-XPfZuy {
+  height: 6px;
+  left: 53px;
+  top: 58px;
+  width: 49px;
+}
+
+.landing-page .vector-QxfJop {
+  height: 6px;
+  left: 53px;
+  top: 58px;
+  width: 49px;
+}
+
+.landing-page .speech-bubble-wTcvor {
+  background-color: transparent;
+  height: 61px;
+  left: 59px;
+  position: absolute;
+  top: 139px;
+  width: 53px;
+}
+
+.landing-page .character-wTcvor {
+  background-color: transparent;
+  height: 288px;
+  left: 86px;
+  position: absolute;
+  top: 145px;
+  width: 148px;
+}
+
+.landing-page .how-to-design-your-s-4Gut2A {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--neutraldgrey);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 44px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+}
+
+.landing-page .one-event-calendar-s-4Gut2A {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--neutralgrey);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+}
+
+.landing-page .button-JQmcw6 {
+  background-color: var(--brandprimary);
+  border-radius: 4px;
+  gap: 10px;
+  justify-content: center;
+  padding: 14px 32px;
+}
+
+.landing-page .label-HAfFNe {
+  color: var(--default--white);
+  font-weight: 500;
+  margin-top: -1.00px;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .customers-Z85P74 {
+  align-items: center;
+  background-color: var(--neutralsilver);
+  display: flex;
+  flex: 0 0 auto;
+  gap: 78px;
+  padding: 32px 144px;
+  position: relative;
+  width: 1440px;
+}
+
+.landing-page .image-9-7YS2qW {
+  background-color: transparent;
+  height: 358px;
+  margin-bottom: -24.00px;
+  margin-left: -16.00px;
+  margin-top: -8.00px;
+  object-fit: cover;
+  position: relative;
+  width: 358px;
+}
+
+.landing-page .frame-11-7YS2qW {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 32px;
+  position: relative;
+}
+
+.landing-page .content-PxY34R {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  width: 100%;
+}
+
+.landing-page .we-have-enjoyed-work-MKxNeb {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--neutralgrey);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+}
+
+.landing-page .frame-7-MKxNeb {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: 100%;
+}
+
+.landing-page .tim-smith-bFhUj2 {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--brandprimary);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+}
+
+.landing-page .british-dragon-boat-racing-association-bFhUj2 {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--neutrallgrey);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  position: relative;
+  text-align: left;
+}
+
+.landing-page .frame-14-PxY34R {
+  align-items: center;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 32px;
+  position: relative;
+  width: 100%;
+}
+
+.landing-page .frame-10-0WjcJt {
+  background-color: transparent;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.landing-page .frame-13-0WjcJt {
+  flex: 1;
+  flex-grow: 1;
+}
+
+.landing-page .meet-all-customers-Lf0lPy {
+  background-color: transparent;
+  color: var(--brandprimary);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+  width: 188px;
+}
+
+.landing-page .x24-arrows-directions-right-Lf0lPy {
+  height: 24.000002098146638px;
+  margin-right: -13.00px;
+  width: 24.000002098146524px;
+}
+
+.landing-page .community-updates-Z85P74 {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.landing-page .community-2Fv7ca {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  width: 1110px;
+}
+
+.landing-page .section-title-5ihyFK {
+  align-self: stretch;
+  color: var(--neutraldgrey);
+  text-align: center;
+}
+
+.landing-page .description-5ihyFK {
+  color: var(--neutralgrey);
+  text-align: center;
+  width: 628px;
+}
+
+.landing-page .frame-15-2Fv7ca {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  padding: 0px 144px;
+  position: relative;
+  width: 1440px;
+}
+
+.landing-page .x1-LAGQ2A {
+  flex-direction: column;
+}
+
+.landing-page .image-18-0oYVYZ {
+  background-color: transparent;
+  height: 286px;
+  object-fit: cover;
+  position: relative;
+  width: 368px;
+}
+
+.landing-page .content-0oYVYZ {
+  align-items: center;
+  background-color: var(--neutralsilver);
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px #abbed166;
+  display: inline-flex;
+  margin-top: -96px;
+  padding: 16px;
+}
+
+.landing-page .frame-13-VbGnU1 {
+  align-self: stretch;
+  flex: 0 0 auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.landing-page .x24-arrows-directions-right-TFxrgP {
+  height: 24.000002098146524px;
+  width: 24.000002098146638px;
+}
+
+.landing-page .x2-LAGQ2A {
+  flex-direction: column;
+}
+
+.landing-page .image-19-Sq4xcE {
+  background-color: transparent;
+  height: 286px;
+  position: relative;
+  width: 368px;
+}
+
+.landing-page .content-Sq4xcE {
+  align-items: center;
+  background-color: var(--neutralsilver);
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px #abbed166;
+  display: inline-flex;
+  margin-top: -96px;
+  padding: 16px;
+}
+
+.landing-page .frame-13-Dx2UsC {
+  align-self: stretch;
+  flex: 0 0 auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.landing-page .x24-arrows-directions-right-aygyCx {
+  height: 24.000002098146524px;
+  width: 24.000002098146524px;
+}
+
+.landing-page .x3-LAGQ2A {
+  flex-direction: column;
+}
+
+.landing-page .image-20-4AXuxB {
+  background-color: transparent;
+  height: 286px;
+  object-fit: cover;
+  position: relative;
+  width: 368px;
+}
+
+.landing-page .content-4AXuxB {
+  align-items: center;
+  background-color: var(--neutralsilver);
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px #abbed166;
+  display: inline-flex;
+  margin-top: -96px;
+  padding: 16px;
+}
+
+.landing-page .frame-13-pg00gS {
+  align-self: stretch;
+  flex: 0 0 auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.landing-page .x24-arrows-directions-right-xCubut {
+  height: 24.000002098146524px;
+  width: 24.000002098146524px;
+}
+
+.landing-page .dot-0MUxxh {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  gap: 8px;
+  left: 697px;
+  position: absolute;
+  top: 657px;
+}
+
+.landing-page .ellipse-5-Va9OPo {
+  background-color: var(--brandprimary);
+  border-radius: 5px;
+  height: 10px;
+  position: relative;
+  width: 10px;
+}
+
+.landing-page .ellipse-6-Va9OPo {
+  background-color: var(--brandprimary);
+  border-radius: 5px;
+  height: 10px;
+  opacity: 0.3;
+  position: relative;
+  width: 10px;
+}
+
+.landing-page .ellipse-7-Va9OPo {
+  background-color: var(--brandprimary);
+  border-radius: 5px;
+  height: 10px;
+  opacity: 0.3;
+  position: relative;
+  width: 10px;
+}
+
+.landing-page .footer-0MUxxh {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex-direction: column;
+  left: 0px;
+  position: absolute;
+  top: 3748px;
+}
+
+.landing-page .frame-16-BGblZA {
+  align-items: center;
+  background-color: var(--neutralsilver);
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px 0px;
+  position: relative;
+  width: 1440px;
+}
+
+.landing-page .let-nextcent-do-the-CPXkRd {
+  background-color: transparent;
+  color: var(--brandsecondary);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 76px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  width: 887px;
+}
+
+.landing-page .button-CPXkRd {
+  background-color: var(--brandprimary);
+  border-radius: 4px;
+  gap: 8px;
+  justify-content: center;
+  padding: 14px 32px;
+}
+
+.landing-page .label-FSMziP {
+  color: var(--default--white);
+  font-weight: 500;
+  margin-top: -1.00px;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .x16-arrows-directions-right-FSMziP {
+  background-color: transparent;
+  height: 16.000001398764425px;
+  position: relative;
+  width: 16.000001398764425px;
+}
+
+.landing-page .footer-big-4-BGblZA {
+  align-items: flex-start;
+  background-color: var(--brandsecondary);
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 125px;
+  padding: 64px 165px;
+  position: relative;
+}
+
+.landing-page .company-info-5Uxpqx {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .logo-X3mhTY {
+  flex: 0 0 auto;
+  gap: 9.890581130981445px;
+  position: relative;
+}
+
+.landing-page .icon-ZX9xxg {
+  background-color: transparent;
+  height: 29.671875px;
+  position: relative;
+  width: 43.2713623046875px;
+}
+
+.landing-page .nexcent-ZX9xxg {
+  height: 25.5447998046875px;
+  width: 137.838134765625px;
+}
+
+.landing-page .copyright-X3mhTY {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .copyright-2020-landify-ui-kit-1eyujT {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+  width: 350px;
+}
+
+.landing-page .all-rights-reserved-1eyujT {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+  width: 350px;
+}
+
+.landing-page .social-links-X3mhTY {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .links-5Uxpqx {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .col-1-J6iE7W {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .company-6K6l5I {
+  background-color: transparent;
+  color: var(--default--white);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .about-us-D9cxwU {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .blog-D9cxwU {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .contact-us-D9cxwU {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .pricing-D9cxwU {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .testimonials-D9cxwU {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .col-2-J6iE7W {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .support-kjn069 {
+  background-color: transparent;
+  color: var(--default--white);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .help-center-fFElDn {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .terms-of-service-fFElDn {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .legal-fFElDn {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .privacy-policy-fFElDn {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .status-fFElDn {
+  background-color: transparent;
+  color: var(--neutralsilver);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .col-3-J6iE7W {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .stay-up-to-date-8m0BAo {
+  background-color: transparent;
+  color: var(--default--white);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+  width: 160px;
+}
+
+.landing-page .email-input-field-8m0BAo {
+  background-color: transparent;
+  height: 40px;
+  margin-right: -2.00px;
+  position: relative;
+  width: 257px;
+}
+
+.landing-page .input-field-bg-BxzfIt {
+  background-color: var(--default--white);
+  border-radius: 8px;
+  height: 40px;
+  left: 0px;
+  opacity: 0.2;
+  position: absolute;
+  top: 0px;
+  width: 255px;
+}
+
+.landing-page .essential-icons-send-BxzfIt {
+  background-color: transparent;
+  height: 18px;
+  left: 225px;
+  position: absolute;
+  top: 11px;
+  width: 18px;
+}
+
+.landing-page .your-email-address-BxzfIt {
+  background-color: transparent;
+  color: var(--text--gray-300);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 12px;
+  line-height: 20px;
+  position: absolute;
+  text-align: left;
+  top: 9px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.landing-page .frame-36-0MUxxh {
+  background-color: var(--neutralsilver);
+  height: 84px;
+  left: 0px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  width: 1440px;
+}
+
+.landing-page .group-2228-yHqJZu {
+  background-color: transparent;
+  height: 24px;
+  left: 426px;
+  position: absolute;
+  top: 30px;
+  width: 586px;
+}
+
+.landing-page .heading-name-xUjpND {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  left: 0px;
+  overflow: hidden;
+  position: relative;
+  top: 0px;
+  width: 586px;
+}
+
+.landing-page .header-menu-default-V7F8Mg {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  margin-left: -2.50px;
+  position: relative;
+}
+
+.landing-page .label-DwnY14 {
+  color: var(--text--gray-900);
+  font-weight: 500;
+  margin-top: -1.00px;
+  text-align: left;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .label-oAGWYK {
+  color: var(--text--gray-900);
+  font-weight: 400;
+  margin-top: -1.00px;
+  text-align: left;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .label-OdMUWR {
+  color: var(--text--gray-900);
+  font-weight: 400;
+  margin-top: -1.00px;
+  text-align: left;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .label-XjrgJZ {
+  color: var(--text--gray-900);
+  font-weight: 400;
+  margin-top: -1.00px;
+  text-align: left;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .label-fFesAT {
+  color: var(--text--gray-900);
+  font-weight: 400;
+  margin-top: -1.00px;
+  text-align: left;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .label-x68GPc {
+  color: var(--text--gray-900);
+  font-weight: 400;
+  margin-top: -1.00px;
+  text-align: left;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .logo-yHqJZu {
+  gap: 8px;
+  left: 105px;
+  position: absolute;
+  top: 30px;
+}
+
+.landing-page .icon-q7jpyv {
+  background-color: transparent;
+  height: 24px;
+  position: relative;
+  width: 35px;
+}
+
+.landing-page .nexcent-q7jpyv {
+  height: 20.661865234375px;
+  width: 111.49041748046875px;
+}
+
+.landing-page .login-yHqJZu {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  gap: 14px;
+  left: 1110px;
+  overflow: hidden;
+  position: absolute;
+  top: 22px;
+}
+
+.landing-page .button-kFZaxx {
+  background-color: var(--neutralsilver);
+  border-radius: 6px;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.landing-page .login-xyULoq {
+  background-color: transparent;
+  color: var(--brandprimary);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .button-gbS69x {
+  background-color: var(--brandprimary);
+  border-radius: 6px;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.landing-page .sign-up-Yq1fVJ {
+  background-color: transparent;
+  color: var(--default--white);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .button {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.landing-page .clients {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+}
+
+.landing-page .community {
+  background-color: transparent;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+}
+
+.landing-page .content {
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.landing-page .creating-streamlined {
+  background-color: transparent;
+  color: var(--neutralgrey);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  width: 285px;
+}
+
+.landing-page .description {
+  background-color: transparent;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  position: relative;
+}
+
+.landing-page .details {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .frame-13 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  position: relative;
+}
+
+.landing-page .frame-3 {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+}
+
+.landing-page .frame-5 {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 601px;
+}
+
+.landing-page .frame-6 {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  width: 661px;
+}
+
+.landing-page .label {
+  background-color: transparent;
+  font-style: normal;
+  line-height: 24px;
+  position: relative;
+}
+
+.landing-page .list-items {
+  align-items: flex-start;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .logo {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+}
+
+.landing-page .member {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  margin-left: -16.00px;
+  margin-right: -16.00px;
+  position: relative;
+  width: 267px;
+}
+
+.landing-page .menu-item-default {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  position: relative;
+}
+
+.landing-page .nexcent {
+  background-color: transparent;
+  position: relative;
+}
+
+.landing-page .number {
+  background-color: transparent;
+  color: var(--neutraldgrey);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+  width: 191px;
+}
+
+.landing-page .our-membership-manag {
+  background-color: transparent;
+  color: var(--neutralgrey);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+}
+
+.landing-page .readmore {
+  background-color: transparent;
+  color: var(--brandprimary);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.landing-page .rectangle-157 {
+  background-color: var(--tintt5);
+  border-radius: 18px 5px 10px 5px;
+  height: 49px;
+  left: 15px;
+  position: absolute;
+  top: 7px;
+  transform: rotate(-180.00deg);
+  width: 50px;
+}
+
+.landing-page .section-heading {
+  align-items: flex-start;
+  background-color: transparent;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-page .section-title {
+  background-color: transparent;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 44px;
+  margin-top: -1.00px;
+  position: relative;
+}
+
+.landing-page .social-icons {
+  background-color: transparent;
+  height: 31.999984741210938px;
+  position: relative;
+  width: 32px;
+}
+
+.landing-page .span0 {
+  color: var(--neutraldgrey);
+  font-style: normal;
+}
+
+.landing-page .span1 {
+  color: var(--brandprimary);
+  font-style: normal;
+}
+
+.landing-page .unlock {
+  background-color: transparent;
+  position: relative;
+}
+
+.landing-page .vector {
+  background-color: transparent;
+  position: absolute;
+}
+
+.landing-page .x1 {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.landing-page .x2 {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.landing-page .x24-arrows-directions-right {
+  background-color: transparent;
+  position: relative;
+}
+
+.landing-page .x3 {
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: relative;
+}
+</style></head><body style="margin: 0;background: #ffffff;"><input type="hidden" id="anPageName" name="page" value="landing-page"><div class="container-center-horizontal"><div class="landing-page screen " data-id="5:573"><div class="home-0MUxxh" data-id="10:948"><div class="hero-section-AVfXY2" data-id="10:923"><div class="frame-1-hEKUTd" data-id="10:921"><div class="text-lTLpwB" data-id="9:622"><h1 class="title-OC4U6j headingheadline-1" data-id="5:827"><span class="span0 headingheadline-1">Lessons and insights </span><span class="span1 headingheadline-1">from 8 years</span></h1><p class="where-to-grow-your-b-OC4U6j bodyregularbody-2" data-id="5:828">Where to grow your business as a photographer: site or social media?</p></div><div class="button-lTLpwB button" data-id="10:918"><div class="label-BAiyLT valign-text-middle label bodymediumbody-2" data-id="I10:918;1:724">Register</div></div></div><img class="illustration-hEKUTd" data-id="10:917" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/illustration.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/illustration.svg" alt="Illustration"></div><div class="clients-AVfXY2 clients" data-id="10:946"><div class="clients-akNU3k clients" data-id="10:943"><div class="section-title-fx3aFJ section-title headingheadline-2" data-id="10:941">Our Clients</div><p class="description-fx3aFJ description bodyregularbody-2" data-id="10:942">We have been working with some Fortune 500+ clients</p></div><img class="clients-logos-akNU3k" data-id="10:944" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/clients-logos.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/clients-logos.svg" alt="Clients Logos"></div><div class="community-AVfXY2 community" data-id="14:1010"><div class="community-lVM8O4 community" data-id="12:621"><p class="section-title-1h0xPB section-title headingheadline-2" data-id="12:622">Manage your entire community in a single system</p><p class="description-1h0xPB description bodyregularbody-2" data-id="12:623">Who is Nextcent suitable for?</p></div><div class="frame-4-lVM8O4" data-id="14:1009"><div class="membership-organizatios-pRVKiG" data-id="14:903"><div class="member" data-id="14:862"><div class="icon-IKZ7mN" data-id="14:828"><div class="rectangle-157" data-id="12:633"></div><img class="icon-yYeHuu" data-id="13:638" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-3.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-3.svg" alt="Icon"></div><div class="membership-organisations-IKZ7mN headingheadline-3" data-id="14:861">Membership Organisations</div></div><div class="frame-3-VJt7Y1 frame-3" data-id="14:947"><p class="our-membership-manag-hZl0DP our-membership-manag bodyregularbody-3" data-id="14:902">Our membership management software provides full automation of membership renewals and payments</p></div></div><div class="national-associations-pRVKiG" data-id="14:948"><div class="member" data-id="14:949"><div class="icon-APXYum" data-id="14:957"><div class="rectangle-157" data-id="14:958"></div><img class="icon-3pWxa7" data-id="14:959" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-12.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-12.svg" alt="Icon"></div><div class="national-associations-APXYum headingheadline-3" data-id="14:954">National Associations</div></div><div class="frame-3-vZbT7w frame-3" data-id="14:955"><p class="our-membership-manag-XqMQBi our-membership-manag bodyregularbody-3" data-id="14:956">Our membership management software provides full automation of membership renewals and payments</p></div></div><div class="national-associations-kl4opG" data-id="14:977"><div class="member" data-id="14:978"><div class="icon-ppjiiN" data-id="14:1002"><div class="rectangle-157" data-id="14:1003"></div><img class="icon-3OwWDf" data-id="14:1004" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-10.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-10.svg" alt="Icon"></div><div class="clubs-and-groups-ppjiiN headingheadline-3" data-id="14:999">Clubs And Groups</div></div><div class="frame-3-Va6OYH frame-3" data-id="14:1000"><p class="our-membership-manag-yxR2t6 our-membership-manag bodyregularbody-3" data-id="14:1001">Our membership management software provides full automation of membership renewals and payments</p></div></div></div></div></div><div class="body-0MUxxh" data-id="16:1467"><div class="unlock-Z85P74 unlock" data-id="14:1043"><div class="unlock-nuXLgd unlock" data-id="14:1044"><img class="frame-35-98tWGb" data-id="211:1737" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/frame-35.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/frame-35.svg" alt="Frame 35"><div class="frame-6" data-id="14:1046"><div class="frame-5" data-id="14:1047"><p class="the-unseen-of-spendi-jikXn6 headingheadline-2" data-id="14:1048">The unseen of spending three years at Pixelgrade</p><p class="when-joining-the-jus-jikXn6 bodyregularbody-3" data-id="14:1049">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum. Sed accumsan quam vitae est varius fringilla. Pellentesque placerat vestibulum lorem sed porta. Nullam mattis tristique iaculis. Nullam pulvinar sit amet risus pretium auctor. Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec elementum pulvinar odio.</p></div><div class="button-EHNx4H button" data-id="14:1050"><div class="label-xcb9OH valign-text-middle label bodymediumbody-2" data-id="I14:1050;1:724">Learn More</div></div></div></div></div><div class="achievements-Z85P74" data-id="16:1332"><div class="section-heading-GbOn8M section-heading" data-id="16:1447"><div class="section-heading-6zReXN section-heading" data-id="16:1452"><p class="section-title-0Pzx9a section-title headingheadline-2" data-id="16:1453"><span class="span0 headingheadline-2">Helping a local </span><span class="span1 headingheadline-2">business reinvent itself</span></p></div><p class="description-6zReXN description bodyregularbody-2" data-id="16:1449">We reached here with our hard work and dedication</p></div><div class="counts-GbOn8M" data-id="16:1334"><div class="row-1-dJNItk" data-id="16:1335"><div class="x2-dxERhH x2" data-id="16:1415"><img class="icon-fZbIWb" data-id="16:1460" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-4.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-4.svg" alt="Icon"><div class="details" data-id="16:1418"><div class="number headingheadline-3" data-id="16:1419">2,245,341</div><div class="label-Xbg8jd label bodyregularbody-2" data-id="16:1420">Members</div></div></div><div class="x1-dxERhH x1" data-id="16:1406"><img class="icon-EpJT3M" data-id="16:1455" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-7.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-7.svg" alt="Icon"><div class="details" data-id="16:1409"><div class="number headingheadline-3" data-id="16:1410">46,328</div><div class="label-3xad0e label bodyregularbody-2" data-id="16:1411">Clubs</div></div></div></div><div class="row-2-dJNItk" data-id="16:1338"><div class="x3-xxL5KI x3" data-id="16:1382"><img class="icon-b7whjn" data-id="16:1462" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-5.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-5.svg" alt="Icon"><div class="details" data-id="16:1385"><div class="number headingheadline-3" data-id="16:1386">828,867</div><div class="label-4eWY3u label bodyregularbody-2" data-id="16:1387">Event Bookings</div></div></div><div class="x4-xxL5KI" data-id="16:1393"><img class="icon-Fn3TTJ" data-id="16:1464" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-6.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-6.svg" alt="Icon"><div class="details" data-id="16:1396"><div class="number headingheadline-3" data-id="16:1397">1,926,436</div><div class="label-hMeUNu label bodyregularbody-2" data-id="16:1398">Payments</div></div></div></div></div></div><div class="logo-Z85P74 logo" data-id="302:878"><img class="icon-YrtfHk" data-id="I302:878;208:711" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-8.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-8.svg" alt="Icon"><img class="nexcent-YrtfHk nexcent" data-id="I302:878;208:745" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/nexcent-2.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/nexcent-2.svg" alt="Nexcent"></div><div class="calender-Z85P74" data-id="17:677"><div class="unlock-u8fE6T unlock" data-id="17:678"><div class="mobile-loginpana-mkVAso" data-id="211:1422"><img class="background-complete-wTcvor" data-id="211:1423" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/background-complete@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/background-complete@2x.png" alt="background-complete"><img class="background-simple-wTcvor" data-id="211:1457" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/background-simple@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/background-simple@2x.png" alt="background-simple"><img class="floor-wTcvor" data-id="211:1459" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/floor@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/floor@2x.png" alt="Floor"><img class="plant-wTcvor" data-id="211:1461" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/plant@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/plant@2x.png" alt="Plant"><img class="padlock-wTcvor" data-id="211:1468" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/padlock@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/padlock@2x.png" alt="Padlock"><div class="device-wTcvor" data-id="211:1474"><img class="vector-c9q7ec vector" data-id="211:1475" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector.svg" alt="Vector"><img class="vector-l0yfO6 vector" data-id="211:1476" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-1.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-1.svg" alt="Vector"><img class="vector-71EVwd vector" data-id="211:1477" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-2.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-2.svg" alt="Vector"><div class="sing-up-c9q7ec" data-id="211:1478">SING UP</div><img class="vector-kT9Xma vector" data-id="211:1479" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-3.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-3.svg" alt="Vector"><img class="vector-dLGsOZ vector" data-id="211:1480" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-4.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-4.svg" alt="Vector"><img class="vector-suxNea vector" data-id="211:1481" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-5.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-5.svg" alt="Vector"><img class="vector-BQchXC vector" data-id="211:1482" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-6.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-6.svg" alt="Vector"><img class="vector-QbIF1Y vector" data-id="211:1483" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-7.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-7.svg" alt="Vector"><img class="vector-ckMzgX vector" data-id="211:1484" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-8.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-8.svg" alt="Vector"><img class="vector-WJ6xSL vector" data-id="211:1485" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-9.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-9.svg" alt="Vector"><img class="vector-hanE9o vector" data-id="211:1486" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-10.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-10.svg" alt="Vector"><img class="vector-RpRO6s vector" data-id="211:1487" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-11.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-11.svg" alt="Vector"><img class="vector-PLUrOU vector" data-id="211:1488" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-12.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-12.svg" alt="Vector"><img class="vector-2ieKmv vector" data-id="211:1489" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-13.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-13.svg" alt="Vector"><img class="vector-DxLx0T vector" data-id="211:1490" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-14.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-14.svg" alt="Vector"><img class="vector-cEeSN7 vector" data-id="211:1491" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-15.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-15.svg" alt="Vector"><img class="vector-sboQ5f vector" data-id="211:1492" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-16.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-16.svg" alt="Vector"><img class="vector-zEtMJa vector" data-id="211:1493" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-17.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-17.svg" alt="Vector"><img class="vector-ymkgUA vector" data-id="211:1494" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-18.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-18.svg" alt="Vector"><img class="vector-6HDlRn vector" data-id="211:1495" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-19.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-19.svg" alt="Vector"><img class="vector-VPhzjf vector" data-id="211:1496" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-20.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-20.svg" alt="Vector"><img class="vector-9xN2rl vector" data-id="211:1497" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-21.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-21.svg" alt="Vector"><img class="vector-lJybrD vector" data-id="211:1498" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-22.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-22.svg" alt="Vector"><img class="vector-64CapB vector" data-id="211:1499" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-23.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-23.svg" alt="Vector"><img class="vector-xH7cQc vector" data-id="211:1500" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-24.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-24.svg" alt="Vector"><img class="group-c9q7ec" data-id="211:1501" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/group@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/group@2x.png" alt="Group"><img class="vector-lpYENf vector" data-id="211:1511" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-25.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-25.svg" alt="Vector"><img class="vector-B0BZKj vector" data-id="211:1512" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-26.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-26.svg" alt="Vector"><img class="vector-XPfZuy vector" data-id="211:1513" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-27.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-27.svg" alt="Vector"><img class="vector-QxfJop vector" data-id="211:1514" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-28.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/vector-28.svg" alt="Vector"></div><img class="speech-bubble-wTcvor" data-id="211:1515" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/speech-bubble@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/speech-bubble@2x.png" alt="speech-bubble"><img class="character-wTcvor" data-id="211:1519" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/character@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/character@2x.png" alt="Character"></div><div class="frame-6" data-id="17:680"><div class="frame-5" data-id="17:681"><p class="how-to-design-your-s-4Gut2A headingheadline-2" data-id="17:682">How to design your site footer like we did</p><p class="one-event-calendar-s-4Gut2A bodyregularbody-3" data-id="17:683">Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue nec tincidunt molestie, massa nunc varius arcu, at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In hac habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod augue vitae nisi ultricies, non aliquet urna tincidunt. Integer in nisi eget nulla commodo faucibus efficitur quis massa. Praesent felis est, finibus et nisi ac, hendrerit venenatis libero. Donec consectetur faucibus ipsum id gravida.</p></div><div class="button-JQmcw6 button" data-id="17:684"><div class="label-HAfFNe valign-text-middle label bodymediumbody-2" data-id="I17:684;1:724">Learn More</div></div></div></div></div><div class="customers-Z85P74" data-id="22:780"><img class="image-9-7YS2qW" data-id="22:749" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/image-9@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/image-9@2x.png" alt="image 9"><div class="frame-11-7YS2qW" data-id="22:779"><div class="content-PxY34R content" data-id="22:755"><p class="we-have-enjoyed-work-MKxNeb valign-text-middle bodymediumbody-2" data-id="22:747">Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu enim metus. Vivamus sed libero ornare, tristique quam in, gravida enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet elit at ligula molestie, nec molestie mi blandit. Suspendisse cursus tellus sed augue ultrices, quis tristique nulla sodales. Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse potenti. Quisque malesuada enim sapien, vitae placerat ante feugiat eget. Quisque vulputate odio neque, eget efficitur libero condimentum id. Curabitur id nibh id sem dignissim finibus ac sit amet magna.</p><div class="frame-7-MKxNeb" data-id="22:754"><div class="tim-smith-bFhUj2 valign-text-middle headingheadline-4" data-id="22:752">Tim Smith</div><p class="british-dragon-boat-racing-association-bFhUj2 valign-text-middle bodyregularbody-2" data-id="22:753">British Dragon Boat Racing Association</p></div></div><div class="frame-14-PxY34R" data-id="22:791"><img class="frame-10-0WjcJt" data-id="22:777" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/frame-10.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/frame-10.svg" alt="Frame 10"><div class="frame-13-0WjcJt frame-13" data-id="22:786"><div class="meet-all-customers-Lf0lPy valign-text-middle headingheadline-4" data-id="22:787">Meet all customers</div><img class="x24-arrows-directions-right-Lf0lPy x24-arrows-directions-right" data-id="22:788" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/24-arrows---directions-right-16.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/24-arrows---directions-right-16.svg" alt="24/Arrows &amp; Directions/Right"></div></div></div></div><div class="community-updates-Z85P74" data-id="22:919"><div class="community-2Fv7ca community" data-id="22:916"><p class="section-title-5ihyFK section-title headingheadline-2" data-id="22:917">Caring is the new marketing</p><p class="description-5ihyFK description bodyregularbody-2" data-id="22:918">The Nexcent blog is the best place to read about the latest membership insights, trends and more. See who's joining the community, read about how our community are increasing their membership income and lot's more.&ZeroWidthSpace;</p></div><div class="frame-15-2Fv7ca" data-id="22:915"><div class="x1-LAGQ2A x1" data-id="22:899"><img class="image-18-0oYVYZ" data-id="22:900" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/image-18@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/image-18@2x.png" alt="image 18"><div class="content-0oYVYZ content" data-id="22:901"><p class="creating-streamlined headingheadline-4" data-id="22:902">Creating Streamlined Safeguarding Processes with OneRen</p><div class="frame-13-VbGnU1 frame-13" data-id="22:903"><div class="readmore valign-text-middle headingheadline-4" data-id="22:904">Readmore</div><img class="x24-arrows-directions-right-TFxrgP x24-arrows-directions-right" data-id="22:905" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/24-arrows---directions-right-17.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/24-arrows---directions-right-17.svg" alt="24/Arrows &amp; Directions/Right"></div></div></div><div class="x2-LAGQ2A x2" data-id="22:890"><img class="image-19-Sq4xcE" data-id="22:909" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/image-19@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/image-19@2x.png" alt="image 19"><div class="content-Sq4xcE content" data-id="22:892"><p class="creating-streamlined headingheadline-4" data-id="22:893">What are your safeguarding responsibilities and how can you manage them?</p><div class="frame-13-Dx2UsC frame-13" data-id="22:894"><div class="readmore valign-text-middle headingheadline-4" data-id="22:895">Readmore</div><img class="x24-arrows-directions-right-aygyCx x24-arrows-directions-right" data-id="22:896" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/24-arrows---directions-right-18.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/24-arrows---directions-right-18.svg" alt="24/Arrows &amp; Directions/Right"></div></div></div><div class="x3-LAGQ2A x3" data-id="22:881"><img class="image-20-4AXuxB" data-id="22:913" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/image-20@2x.png" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/image-20@2x.png" alt="image 20"><div class="content-4AXuxB content" data-id="22:883"><p class="creating-streamlined headingheadline-4" data-id="22:884">Revamping the Membership Model with Triathlon Australia</p><div class="frame-13-pg00gS frame-13" data-id="22:885"><div class="readmore valign-text-middle headingheadline-4" data-id="22:886">Readmore</div><img class="x24-arrows-directions-right-xCubut x24-arrows-directions-right" data-id="22:887" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/24-arrows---directions-right-18.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/24-arrows---directions-right-18.svg" alt="24/Arrows &amp; Directions/Right"></div></div></div></div></div></div><footer class="footer-0MUxxh" data-id="22:1182"><div class="frame-16-BGblZA" data-id="22:928"><p class="let-nextcent-do-the-CPXkRd headingheadline-1" data-id="22:920">Pellentesque suscipit fringilla libero eu.</p><div class="button-CPXkRd button" data-id="22:923"><div class="label-FSMziP valign-text-middle label bodymediumbody-2" data-id="I22:923;1:726">Get a Demo</div><img class="x16-arrows-directions-right-FSMziP" data-id="I22:923;1:727" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/16-arrows---directions-right-31.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/16-arrows---directions-right-31.svg" alt="16/Arrows &amp; Directions/Right"></div></div><div class="footer-big-4-BGblZA" data-id="211:1053"><div class="company-info-5Uxpqx" data-id="I211:1053;211:990"><div class="logo-X3mhTY logo" data-id="I211:1053;211:1044"><img class="icon-ZX9xxg" data-id="I211:1053;211:1044;208:711" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-11.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-11.svg" alt="Icon"><img class="nexcent-ZX9xxg nexcent" data-id="I211:1053;211:1044;208:745" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/nexcent-3.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/nexcent-3.svg" alt="Nexcent"></div><div class="copyright-X3mhTY" data-id="I211:1053;211:992"><p class="copyright-2020-landify-ui-kit-1eyujT bodyregularbody-3" data-id="I211:1053;211:993">Copyright © 2020 Nexcent ltd.</p><div class="all-rights-reserved-1eyujT bodyregularbody-3" data-id="I211:1053;211:994">All rights reserved</div></div><div class="social-links-X3mhTY" data-id="I211:1053;211:995"><article class="social-icons" data-id="I211:1053;211:996" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/social-icons-4.svg" alt="Social Icons"><article class="social-icons" data-id="I211:1053;211:997" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/social-icons-5.svg" alt="Social Icons"><article class="social-icons" data-id="I211:1053;211:998" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/social-icons-6.svg" alt="Social Icons"><article class="social-icons" data-id="I211:1053;211:999" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/social-icons-7.svg" alt="Social Icons"></article></article></article></article></div></div><div class="links-5Uxpqx" data-id="I211:1053;211:1000"><div class="col-1-J6iE7W" data-id="I211:1053;211:1001"><div class="company-6K6l5I headingheadline-4" data-id="I211:1053;211:1002">Company</div><div class="list-items" data-id="I211:1053;211:1003"><div class="about-us-D9cxwU bodyregularbody-3" data-id="I211:1053;211:1004">About us</div><div class="blog-D9cxwU bodyregularbody-3" data-id="I211:1053;211:1005">Blog</div><div class="contact-us-D9cxwU bodyregularbody-3" data-id="I211:1053;211:1006">Contact us</div><div class="pricing-D9cxwU bodyregularbody-3" data-id="I211:1053;211:1007">Pricing</div><div class="testimonials-D9cxwU bodyregularbody-3" data-id="I211:1053;211:1008">Testimonials</div></div></div><div class="col-2-J6iE7W" data-id="I211:1053;211:1009"><div class="support-kjn069 headingheadline-4" data-id="I211:1053;211:1010">Support</div><div class="list-items" data-id="I211:1053;211:1011"><div class="help-center-fFElDn bodyregularbody-3" data-id="I211:1053;211:1012">Help center</div><div class="terms-of-service-fFElDn bodyregularbody-3" data-id="I211:1053;211:1013">Terms of service</div><div class="legal-fFElDn bodyregularbody-3" data-id="I211:1053;211:1014">Legal</div><div class="privacy-policy-fFElDn bodyregularbody-3" data-id="I211:1053;211:1015">Privacy policy</div><div class="status-fFElDn bodyregularbody-3" data-id="I211:1053;211:1016">Status</div></div></div><div class="col-3-J6iE7W" data-id="I211:1053;211:1017"><div class="stay-up-to-date-8m0BAo headingheadline-4" data-id="I211:1053;211:1018">Stay up to date</div><div class="email-input-field-8m0BAo" data-id="I211:1053;211:1019"><div class="input-field-bg-BxzfIt" data-id="I211:1053;211:1020"></div><img class="essential-icons-send-BxzfIt" data-id="I211:1053;211:1021" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/essential-icons---send-2.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/essential-icons---send-2.svg" alt="Essential Icons / send"><div class="your-email-address-BxzfIt bodyregularbody-3" data-id="I211:1053;211:1022">Your email address</div></div></div></div></div></footer><div class="frame-36-0MUxxh" data-id="213:957"><div class="group-2228-yHqJZu" data-id="213:908"><div class="heading-name-xUjpND" data-id="213:909"><div class="header-menu-default-V7F8Mg" data-id="213:910"><div class="label-DwnY14 label bodymediumbody-2" data-id="213:911">Acceuil</div></div><div class="menu-item-default" data-id="213:912"><div class="label-oAGWYK label bodyregularbody-2" data-id="213:913">Services</div></div><div class="menu-item-default" data-id="213:914"><div class="label-OdMUWR label bodyregularbody-2" data-id="213:915">F.A.Q</div></div><div class="menu-item-default" data-id="213:916"><div class="label-XjrgJZ label bodyregularbody-2" data-id="213:917">Artisans</div></div><div class="menu-item-default" data-id="213:918"><div class="label-fFesAT label bodyregularbody-2" data-id="213:919">Support</div></div><div class="menu-item-default" data-id="213:920"><div class="label-x68GPc label bodyregularbody-2" data-id="213:921">Projets</div></div></div></div><div class="logo-yHqJZu logo" data-id="213:948"><img class="icon-q7jpyv" data-id="I213:948;208:711" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-9.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/icon-9.svg" alt="Icon"><img class="nexcent-q7jpyv nexcent" data-id="I213:948;208:745" src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/nexcent-4.svg" anima-src="https://cdn.animaapp.com/projects/65d091b86874a4ca3e864b63/releases/65d095268c0445adb27a866e/img/nexcent-4.svg" alt="Nexcent"></div><div class="login-yHqJZu" data-id="213:943"><div class="button-kFZaxx button" data-id="213:944"><div class="login-xyULoq bodymediumbody-3" data-id="213:945">Connexion</div></div><div class="button-gbS69x button" data-id="213:946"><div class="sign-up-Yq1fVJ bodymediumbody-3" data-id="213:947">Inscription</div></div></div></div></div></div><script src="launchpad-js/launchpad-banner.js" async=""></script><script defer="" src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script></body></html>
