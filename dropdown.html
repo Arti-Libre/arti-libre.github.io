@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown et Bouton Ajouter</title>
+  <style>
+    /* Ajoutez du style selon vos besoins */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    .case {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Exemple de Dropdown et Bouton Ajouter</h2>
+
+  <!-- Dropdown Button -->
+  <label for="dropdown">Choisir une option:</label>
+  <select id="dropdown">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </select>
+
+  <!-- Bouton Ajouter -->
+  <button onclick="ajouterCase()">Ajouter une case</button>
+
+  <!-- Bouton Afficher la valeur des Dropdowns -->
+  <button onclick="afficherValeursDropdowns()">Afficher les valeurs des Dropdowns</button>
+
+  <!-- Conteneur pour les cases ajoutées -->
+  <div id="container"></div>
+
+  <script>
+    // Stockage des références des dropdowns créés
+    var dropdowns = [];
+
+    // Ajouter le dropdown initial au tableau
+    dropdowns.push(document.getElementById("dropdown"));
+
+    // Fonction pour ajouter une case
+    function ajouterCase() {
+      // Récupérer la valeur sélectionnée dans le dropdown
+      var dropdown = document.getElementById("dropdown");
+      var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+
+      // Créer une nouvelle case (div)
+      var nouvelleCase = document.createElement("div");
+      nouvelleCase.className = "case";
+
+      // Ajouter le dropdown à la nouvelle case
+      var dropdownCase = document.createElement("select");
+      dropdownCase.innerHTML = dropdown.innerHTML;
+      nouvelleCase.appendChild(dropdownCase);
+
+      // Ajouter la nouvelle case au conteneur
+      var container = document.getElementById("container");
+      container.appendChild(nouvelleCase);
+
+      // Stocker la référence du dropdown créé
+      dropdowns.push(dropdownCase);
+    }
+
+    // Fonction pour afficher la valeur de tous les Dropdowns dans la console
+    function afficherValeursDropdowns() {
+      dropdowns.forEach(function(dropdown, index) {
+        var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+        console.log("Valeur du dropdown " + (index + 1) + " : " + selectedOption);
+      });
+    }
+  </script>
+
+</body>
+</html>
