@@ -1,0 +1,114 @@
+@font-face {
+  font-family: circular_medium;
+  src: url('../font/CircularSTD-Medium.otf');
+}
+
+@font-face {
+  font-family: circular_bold;
+  src: url('../font/CircularSTD-Black.otf');
+}
+.header-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajout de l'ombre portée */
+  background-color: white;
+  opacity: 0; /* Réglez l'opacité à 0 pour cacher le header */
+  transition: opacity 0.3s ease; /* Ajout d'une transition d'opacité */
+}
+
+.header-scroll.visible {
+  opacity: 1; /* Augmentez l'opacité pour afficher le header */
+}
+
+.header-scroll {
+  color: #fff;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+header {
+  color: #fff;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+}
+
+.menu-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-button-1 {
+  background-color: #f5f7f9;
+  border-radius: 6px;
+  padding: 10px 20px;
+  border-color: transparent;
+  color: #3eb3f9;
+  cursor: pointer;
+}
+
+.menu-button-1 {
+  background-color: #f5f7f9;
+  border-radius: 6px;
+  padding: 10px 20px;
+  border-color: transparent;
+  color: #3eb3f9;
+  cursor: pointer;
+  font-family: circular_medium, sans-serif;
+}
+
+.menu-button-2 {
+  background-color: #3eb3f9;
+  border-radius: 6px;
+  padding: 10px 20px;
+  border-color: transparent;
+  color: #f5f7f9;
+  cursor: pointer;
+  font-family: circular_medium, sans-serif;
+}
+
+/* Section 1 - BODY */
+
+.personnage{
+  float: right;
+  margin-right: 5%;
+}
+
+.firstsection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 45px;
+  margin-left: 5%;
+}
+
+.text-container {
+  flex: 1;
+  padding-right: 20px; /* Espacement entre le texte et l'image */
+}
+
+.text-container h1, span {
+  font-size: 64px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-family: circular_bold, sans-serif;
+  
+}
+
+.text-container h2 {
+  font-size: 16px;
+  color: #888; /* Couleur gris */
+  font-family: circular_medium, sans-serif;
+  margin: 0;
+}
