@@ -1,11 +1,11 @@
 @font-face {
   font-family: circular_medium;
-  src: url('../font/CircularSTD-Medium.otf');
+  src: url('/font/CircularStd-Medium.otf');
 }
 
 @font-face {
   font-family: circular_bold;
-  src: url('../font/CircularSTD-Black.otf');
+  src: url('/font/CircularSTD-Black.otf');
 }
 
 .header-scroll {
