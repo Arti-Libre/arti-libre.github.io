@@ -168,7 +168,9 @@ span {
 
 .text-container p {
   margin: 0;
+  font-size: 0.8em;
   color: #888;
+  overflow-wrap: break-word;
 }
 
 .secondsection,
