@@ -8,13 +8,16 @@
   src: url('CircularSTD-Black.otf');
 }
 
-button:hover {
-  transition: 0.3s;
-  background-color: #107ebd;
+.logo:hover {
+  cursor: pointer;
 }
 
 button {
   transition: 0.3s;
+}
+
+header img:hover {
+  cursor: pointer;
 }
 
 .header-scroll {
@@ -70,7 +73,7 @@ header {
   border-color: transparent;
   color: #3eb3f9;
   cursor: pointer;
-  font-family: circular_medium, sans-serif;
+  font-family: circular_bold, sans-serif;
   font-size: 15px;
 }
 
@@ -81,7 +84,7 @@ header {
   border-color: transparent;
   color: #f5f7f9;
   cursor: pointer;
-  font-family: circular_medium, sans-serif;
+  font-family: circular_bold, sans-serif;
   font-size: 15px;
 }
 
