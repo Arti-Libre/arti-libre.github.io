@@ -403,3 +403,13 @@ span {
   font-size: 0.9em;
   color: gray;
 }
+
+/* Footer styles */
+ 
+footer {
+  margin-top: 30px;
+}
+
+iframe{
+  height: 251px;
+}
