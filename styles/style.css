@@ -8,6 +8,15 @@
   src: url('CircularSTD-Black.otf');
 }
 
+button:hover {
+  transition: 0.3s;
+  background-color: #107ebd;
+}
+
+button {
+  transition: 0.3s;
+}
+
 .header-scroll {
   position: fixed;
   top: 0;
@@ -181,13 +190,44 @@ span {
 
 .titles {
   text-align: center;
-  margin-bottom: 50px;
   max-width: 800px;
   /* Définir une largeur maximale pour le conteneur */
   margin: 0 auto;
   /* Centrer le conteneur horizontalement */
 
 }
+
+.square {
+
+  margin-top: 30px;
+
+}
+
+.imgclients {
+  margin-left: auto;
+  display: flex;
+  margin-right: auto;
+}
+
+.button-ios,
+.button-android {
+  background-color: #3eb3f9;
+  /* couleur bleue typique d'iOS */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+}
+
+.button-ios {
+  margin-right: 10px;
+  /* espace entre les boutons */
+}
+
 
 .titles h1,
 .titles p {
@@ -274,6 +314,80 @@ span {
   justify-content: flex-start;
   align-items: center;
   max-width: 85%;
+}
+
+.fourthsection button {
+  margin-top: 15px;
+}
+
+.textedivforth h1 {
+  font-family: circular_medium, sans-serif;
+  font-size: 2.5em;
+}
+
+.textedivforth p {
+  font-family: circular_medium, sans-serif;
+  font-size: 0.9em;
+  color: gray;
+}
+
+.site-footer {
+  background-color: #fff;
+  padding: 30px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo img {
+  max-width: 150px;
+}
+
+.footer-links ul,
+.social-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li,
+.social-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links a,
+.social-links a {
+  color: #333;
+  text-decoration: none;
+}
+
+.social-links a {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+
+
+.sithsecontion {
+  margin-top: 100px;
+  margin-left: 10%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 85%;
+}
+
+.sithsecontion button {
+  margin-top: 15px;
 }
 
 .textedivforth h1 {
