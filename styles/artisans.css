@@ -10,6 +10,7 @@
 
 .firstbloc {
     display: flex;
+    justify-content: center;
 }
 
 .leftbloc {
