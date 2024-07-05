@@ -1,11 +1,11 @@
 @font-face {
     font-family: circular_medium;
-    src: url('/font/CircularStd-Medium.otf');
+    src: url('https://artiloka.000webhostapp.com/font/CircularStd-Medium.otf');
 }
 
 @font-face {
     font-family: circular_bold;
-    src: url('/font/CircularSTD-Black.otf');
+    src: url('https://artiloka.000webhostapp.com/font/CircularStd-Black.otf');
 }
 
 .firstbloc {
@@ -74,7 +74,6 @@
 .seemore {
     text-align: center;
     font-family: circular_medium, sans-serif;
-    margin-top: -8px;
     font-size: 17px;
     background: linear-gradient(to right, #44defa, #44abfc);
     -webkit-background-clip: text;
