@@ -1,12 +1,4 @@
-@font-face {
-    font-family: circular_medium;
-    src: url('https://artiloka.000webhostapp.com/font/CircularStd-Medium.otf');
-}
-
-@font-face {
-    font-family: circular_bold;
-    src: url('https://artiloka.000webhostapp.com/font/CircularStd-Black.otf');
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .firstbloc {
     display: flex;
@@ -52,7 +44,7 @@
 }
 
 .leftbloc h1 {
-    font-family: circular_bold, sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 25px;
     text-align: center;
 }
@@ -61,19 +53,19 @@
     margin-top: -13px;
     font-size: 15px;
     text-align: center;
-    font-family: circular_medium, sans-serif;
+    font-family: Montserrat, sans-serif;
     color: gray;
 }
 
 .bio {
     padding: 20px;
-    font-size: 17px;
-    font-family: circular_medium, sans-serif;
+    font-size: 15px;
+    font-family: Montserrat, sans-serif;
 }
 
 .seemore {
     text-align: center;
-    font-family: circular_medium, sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 17px;
     background: linear-gradient(to right, #44defa, #44abfc);
     -webkit-background-clip: text;
