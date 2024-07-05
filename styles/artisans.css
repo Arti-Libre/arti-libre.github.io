@@ -73,3 +73,26 @@
     background-clip: text;
     color: transparent;
 }
+
+.top {
+    padding: 40px;
+    display: flex;
+}
+
+.top h1 {
+    margin-left: 20px;
+    font-size: 25px;
+    font-family: Montserrat, sans-serif;
+}
+
+.presrap p {
+    margin-left: 20px;
+}
+
+.rightbloc .texte{
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 15px;
+    font-family: Montserrat, sans-serif;
+    line-height: 1.5;
+}
