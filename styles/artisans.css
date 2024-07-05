@@ -1,0 +1,83 @@
+@font-face {
+    font-family: circular_medium;
+    src: url('/font/CircularStd-Medium.otf');
+}
+
+@font-face {
+    font-family: circular_bold;
+    src: url('/font/CircularSTD-Black.otf');
+}
+
+.firstbloc {
+    display: flex;
+}
+
+.leftbloc {
+    margin-left: 20px;
+    box-shadow: 0px 3px 9px lightgray;
+    width: 450px;
+    height: 700px;
+    border-radius: 15px;
+}
+
+.rightbloc {
+    margin-left: 25px;
+    margin-right: 20px;
+    width: 1000px;
+    height: 700px;
+    box-shadow: 0px 3px 9px lightgray;
+    border-radius: 15px;
+}
+
+.map {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px 3px 3px lightgray;
+}
+
+.pres {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pp {
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px lightgray;
+}
+
+.leftbloc h1 {
+    font-family: circular_bold, sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+.workxcompany {
+    margin-top: -13px;
+    font-size: 15px;
+    text-align: center;
+    font-family: circular_medium, sans-serif;
+    color: gray;
+}
+
+.bio {
+    padding: 20px;
+    font-size: 17px;
+    font-family: circular_medium, sans-serif;
+}
+
+.seemore {
+    text-align: center;
+    font-family: circular_medium, sans-serif;
+    margin-top: -8px;
+    font-size: 17px;
+    background: linear-gradient(to right, #44defa, #44abfc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
