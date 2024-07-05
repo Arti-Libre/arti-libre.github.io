@@ -5,10 +5,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Ajouté pour espacer le contenu */
     background-color: white;
     padding: 0 50px;
-    /* Pour ajouter un peu de padding sur les côtés */
+    /* Padding sur les côtés */
 }
 
 .headerglobal img {
@@ -16,18 +15,19 @@
 }
 
 .clickables {
-    flex: 1;
-    /* Permet à ce conteneur de prendre tout l'espace disponible */
     display: flex;
+    flex: 1;
+    /* Prend tout l'espace disponible */
     justify-content: center;
-    /* Centre le contenu à l'intérieur de ce conteneur */
+    /* Centre le contenu à l'intérieur */
 }
 
 .headerglobal .buttons {
     display: flex;
-    margin-left: auto;
-    /* Assure que les boutons sont alignés à droite */
+    justify-content: flex-end;
+    /* Aligne les boutons à droite */
 }
+
 
 
 
