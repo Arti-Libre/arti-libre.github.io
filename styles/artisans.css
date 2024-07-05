@@ -17,7 +17,7 @@
     margin-left: 25px;
     margin-right: 20px;
     width: 1000px;
-    height: 700px;
+    height: 450px;
     box-shadow: 0px 3px 9px lightgray;
     border-radius: 15px;
 }
@@ -75,7 +75,9 @@
 }
 
 .top {
-    padding: 40px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
     display: flex;
 }
 
@@ -90,9 +92,25 @@
 }
 
 .rightbloc .texte{
-    padding-left: 50px;
-    padding-right: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
     font-size: 15px;
     font-family: Montserrat, sans-serif;
     line-height: 1.5;
+    margin-top: 30px;
+}
+
+.certficiations{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.certficiations p{
+    margin-left: 15px;
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
 }
