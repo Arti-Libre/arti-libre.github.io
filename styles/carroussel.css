@@ -1,0 +1,8 @@
+img {
+    width: 150px;
+    height: 100px; /* ou toute autre hauteur pour obtenir un rectangle */
+    overflow: hidden;
+    border-radius: 15px;
+    object-fit: cover; /* Cela permet de rognier l'image pour remplir le conteneur */
+    object-position: center; /* Centre l'image dans le conteneur */
+}

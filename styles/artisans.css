@@ -32,7 +32,7 @@
 }
 
 
-.globaldiv{
+.globaldiv {
     max-width: 1220px;
     margin: auto;
 }
@@ -59,7 +59,7 @@
     border-radius: 15px;
 }
 
-.rightdownbloc{
+.rightdownbloc {
     margin-left: 25px;
     margin-right: 20px;
     width: 800px;
@@ -162,14 +162,14 @@
     font-size: 15px;
 }
 
-.buttons{
+.buttons {
     align-items: center;
     display: flex;
     justify-content: center;
 }
 
 .buttons button {
-    background: linear-gradient(to right, #4facfe, #00f2fe); 
+    background: linear-gradient(to right, #4facfe, #00f2fe);
     border: none;
     box-shadow: none;
     outline: none;
@@ -183,7 +183,17 @@
 }
 
 
-.buttons p{
+.buttons p {
     font-family: Montserrat, sans-serif;
     font-size: 15px;
+}
+
+.rightdownbloc .top h1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.caroussel{
+    
 }
