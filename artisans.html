@@ -24,6 +24,10 @@
         </div>
 
     </header>
+    <div id="popup" class="popup">
+        <span class="close">&times;</span>
+        <img class="popup-content" id="popup-img">
+    </div>
     <div class="globaldiv">
         <div class="firstbloc">
             <div class="leftcolumn">
@@ -87,13 +91,29 @@
                         <h1>Précédents chantiers</h1>
                     </div>
                     <div class="caroussel">
-                        <iframe src="" frameborder="0"></iframe>
+                        <iframe src="caroussel.html" frameborder="0"></iframe>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+    <script>
+        // Écouter l'événement 'openPopup' envoyé par l'iframe
+        window.addEventListener('openPopup', function (event) {
+            var imageUrl = event.detail;
+            // Afficher le popup avec l'image agrandie
+            var modal = document.getElementById('popup');
+            var modalImg = document.getElementById('popup-img');
+            modal.style.display = 'block';
+            modalImg.src = imageUrl;
+        });
+
+        // Fonction pour fermer le popup
+        document.querySelector('.close').onclick = function () {
+            document.getElementById('popup').style.display = 'none';
+        };
+    </script>
 </body>
 
 </html>

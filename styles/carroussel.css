@@ -1,8 +1,37 @@
-img {
+.caroussel {
+    display: flex;
+    flex-direction: row; /* Aligne les éléments horizontalement */
+    overflow-x: auto; /* Permet le défilement horizontal */
+    overflow-y: hidden; /* Masque le défilement vertical */
+    white-space: nowrap; /* Empêche le retour à la ligne des éléments enfants */
+    scrollbar-width: thin; /* Personnalise la largeur de la scrollbar sur Firefox */
+    -ms-overflow-style: auto; /* Affiche la scrollbar sur IE et Edge */
+    padding-bottom: 10px; /* Ajoute de l'espace entre les images et la scrollbar */
+    cursor: pointer;
+}
+
+.caroussel::-webkit-scrollbar {
+    height: 8px; /* Hauteur de la scrollbar horizontale */
+}
+
+.caroussel::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Couleur de la piste de la scrollbar */
+}
+
+.caroussel::-webkit-scrollbar-thumb {
+    background: #888; /* Couleur de la poignée de la scrollbar */
+    border-radius: 10px; /* Arrondit les coins de la poignée */
+}
+
+.caroussel::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Couleur de la poignée au survol */
+}
+
+.caroussel img {
     width: 150px;
-    height: 100px; /* ou toute autre hauteur pour obtenir un rectangle */
-    overflow: hidden;
+    height: 100px; /* Ou toute autre hauteur pour obtenir un rectangle */
+    margin-right: 10px; /* Ajoute un espace entre les images */
     border-radius: 15px;
-    object-fit: cover; /* Cela permet de rognier l'image pour remplir le conteneur */
+    object-fit: cover; /* Permet de rogner l'image pour remplir le conteneur */
     object-position: center; /* Centre l'image dans le conteneur */
 }
