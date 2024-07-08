@@ -33,7 +33,7 @@
 
 
 .globaldiv {
-    max-width: 1220px;
+    max-width: 1275px;
     margin: auto;
 }
 
@@ -74,6 +74,7 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     box-shadow: 0px 3px 3px lightgray;
+    height: 33%;
 }
 
 .pres {
@@ -88,6 +89,7 @@
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0px 0px 5px lightgray;
+    cursor: pointer;
 }
 
 .leftbloc h1 {
@@ -132,6 +134,7 @@
     margin-left: 20px;
     font-size: 25px;
     font-family: Montserrat, sans-serif;
+    margin-top: -0px;
 }
 
 .presrap p {
@@ -150,10 +153,9 @@
 .certficiations {
     display: flex;
     align-items: center;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 20px;
     font-size: 20px;
+    justify-content: center;
+    margin-top: -10px;
 }
 
 .certficiations p {
@@ -245,4 +247,17 @@
 .close:focus {
     color: #999;
     text-decoration: none;
+}
+
+.avis {
+    margin-top: 25px;
+    margin-right: 20px;
+    width: 100%;
+    height: 300px;
+    box-shadow: 0px 3px 9px lightgray;
+    border-radius: 15px;
+}
+
+.avis .top h1{
+    font-size: 20px;
 }

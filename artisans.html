@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -32,12 +32,15 @@
         <div class="firstbloc">
             <div class="leftcolumn">
                 <div class="leftbloc">
-                    <img class="map"
+                    <!-- <img class="map"
                         src="https://lacompagniedescartes.fr/cdn/shop/products/carte-top-25-ndeg-1023-ot-la-baule-pnr-de-briere-ign-carte-pliee-ign-232243.jpg?v=1624772961&width=1800"
-                        alt="">
+                        alt=""> -->
+                    <iframe class="map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43297.92311145543!2d-2.4033578692837563!3d47.29245071739339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48055d195853e105%3A0x40d37521e0df090!2s44500%20La%20Baule-Escoublac!5e0!3m2!1sfr!2sfr!4v1720455033927!5m2!1sfr!2sfr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="pres">
-                        <img class="pp" src="images/stephane batic2b.jpg"
-                            alt="">
+                        <img class="pp" src="images/stephane batic2b.jpg" alt="">
                     </div>
                     <h1>Stéphane Cheneau</h1>
                     <p class="workxcompany">Maçon · Bati C2B
@@ -47,18 +50,17 @@
                         J'élabore et met enplace les éménets porteurs d'une construction en respectant les plans: je
                         prépare et réalise les Fondations, coule la dalle, monte les parpaing, dresse les cloisons,
                         pose les planchers, effectue des ouvertures de mur porteur...</p>
-                    <p class="seemore">
-                        Voir plus
-                    </p>
+                    <div class="certficiations">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <p>CPP (Béton Armé) · CPP (Maçonnerie)</p>
+                    </div>
                 </div>
             </div>
 
             <div class="rightcoulumn">
                 <div class="rightbloc">
                     <div class="top">
-                        <img class="pp"
-                            src="images/batic2b logo.png"
-                            alt="">
+                        <img class="pp" src="images/batic2b logo.png" alt="">
                         <div class="presrap">
                             <h1>Bati C2B</h1>
                             <p class="workxcompany">Maçonnerie Paysagère · Maçonnerie </p>
@@ -81,10 +83,6 @@
                         Nous jouons un rôle très important en faveur du service de proximité. Créateur de richesses,
                         l'artisanat représente un maillon incontournable de l'économie locale
                     </div>
-                    <!-- <div class="certficiations">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <p>CPP (Béton Armé) · CPP (Maçonnerie)</p>
-                    </div> -->
                 </div>
                 <div class="rightdownbloc">
                     <div class="top">
@@ -96,8 +94,37 @@
                 </div>
             </div>
 
+
+        </div>
+        <div class="avis">
+            <div class="top">
+                <h1>Avis</h1>
+            </div>
+            <div class="caroussel">
+                <iframe src="caroussel.html" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
+    <script>
+        // Sélectionner toutes les images de classe 'pp'
+        var images = document.querySelectorAll('.pp');
+
+        // Ajouter un gestionnaire d'événement à chaque image
+        images.forEach(function (image) {
+            image.onclick = function () {
+                var imageUrl = this.src; // Obtenir l'URL de l'image cliquée
+                var modal = document.getElementById('popup');
+                var modalImg = document.getElementById('popup-img');
+                modal.style.display = 'block'; // Afficher le popup
+                modalImg.src = imageUrl; // Afficher l'image dans le popup
+            };
+        });
+
+        // Fonction pour fermer le popup en cliquant sur la croix
+        document.querySelector('.close').onclick = function () {
+            document.getElementById('popup').style.display = 'none';
+        };
+    </script>
     <script>
         // Écouter l'événement 'openPopup' envoyé par l'iframe
         window.addEventListener('openPopup', function (event) {
