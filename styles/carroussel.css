@@ -30,8 +30,8 @@
 }
 
 .caroussel img {
-    width: 150px;
-    height: 100px; /* Ou toute autre hauteur pour obtenir un rectangle */
+    width: 450px;
+    height: 210px;
     margin-right: 10px; /* Ajoute un espace entre les images */
     border-radius: 15px;
     object-fit: cover; /* Permet de rogner l'image pour remplir le conteneur */
