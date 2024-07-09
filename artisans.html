@@ -7,6 +7,7 @@
     <title>Test Artisan</title>
     <link rel="stylesheet" href="styles/artisans.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -97,11 +98,11 @@
                             </div>
                             <div class="right">
                                 <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:02.40.45.43.22">
-                                    <p>devis@assist-renov.com</p>
+                                <a href="#previousworking">
+                                    <p>Envoyer une demande de contact</p>
                                 </a>
                             </div>
-                            
+
                         </div>
                         <div class="bottombodyrightdownbloc">
                             <div class="left">
@@ -111,7 +112,7 @@
                                 </a>
                             </div>
                             <div class="right">
-                                <i class="fa-solid fa-envelope"></i>
+                                <i class="fa-solid fa-phone-flip"></i>
                                 <a href="mailto:02.40.45.43.22">
                                     <p>devis@assist-renov.com</p>
                                 </a>
@@ -126,7 +127,7 @@
 
             </div>
         </div>
-        <div class="previousworking">
+        <div class="previousworking" id="previousworking">
             <div class="top">
                 <h1>Précédents chantiers</h1>
             </div>
@@ -156,7 +157,52 @@
             </div>
 
         </div>
+
+        <div class="forms">
+            <div class="leftcolumnforms" id="contact">
+                <div class="top">
+                    <h1>Contacter</h1>
+                </div>
+                <div class="form">
+                    <form action="">
+                        <label for="nom">Votre Prénom :</label><br>
+                        <input type="text" id="nom" name="nom" required><br><br>
+
+                        <label for="prenom">Votre Nom :</label><br>
+                        <input type="text" id="prenom" name="prenom" required><br><br>
+
+                        <label for="email">Votre Email :</label><br>
+                        <input type="email" id="email" name="email" required><br><br>
+                        
+                        <label for="message">Message :</label><br>
+                        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+
+                        <input type="submit" value="Envoyer">
+                        <input type="reset" value="Réinitialiser">
+                    </form>
+                </div>
+            </div>
+
+            <div class="rightcolumnofforms">
+
+            </div>
+
+        </div>
+
     </div>
+    <script>
+        $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
+            });
+        });
+    </script>
     <script>
         // Sélectionner toutes les images de classe 'pp'
         var images = document.querySelectorAll('.pp');
