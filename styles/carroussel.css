@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 .caroussel {
     display: flex;
     flex-direction: row; /* Aligne les éléments horizontalement */
@@ -34,4 +36,113 @@
     border-radius: 15px;
     object-fit: cover; /* Permet de rogner l'image pour remplir le conteneur */
     object-position: center; /* Centre l'image dans le conteneur */
+}
+
+.card {
+    font-family: Montserrat, sans-serif;
+    width: 450px;
+    height: 250px;
+    box-shadow: 0px 3px 3px lightgray;
+    border-radius: 15px;
+    min-width: 450px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+.top img {
+    width: auto;
+    height: 15px;
+    border-radius: 0px;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+    padding: 15px;
+}
+
+.top .month {
+    color: gray;
+}
+    
+.bodyofcarroussel {
+    padding: 15px; /* Réduit le padding à 10px */
+    padding-top: 0px; /* Maintient le padding supérieur à 0px */
+    padding-bottom: 0px; /* Maintient le padding supérieur à 0px */
+    font-family: Montserrat, sans-serif;
+    font-size: 12px;
+    height: 80px; /* Définit une hauteur fixe ou ajustez selon vos besoins */
+    white-space: normal; /* Assure que le texte passe à la ligne */
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+}
+
+.bodyofcarroussel h1 {
+    margin-top: -10px;
+    font-size: 15px;
+}
+
+.bodyofcarroussel p {
+    font-size: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word; /* Ajouté pour assurer le passage à la ligne */
+    display: -webkit-box; /* Utilise le modèle de boîte flexible */
+    -webkit-box-orient: vertical; /* Définit l'orientation verticale */
+    -webkit-line-clamp: 3; /* Nombre maximum de lignes avant l'ajout des ellipses */
+    overflow: hidden; /* Cache tout texte qui dépasse */
+}
+
+.recommand h1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.recommand {
+    display: flex;
+    margin-top: -10px;
+    align-items: center;
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.recommand i {
+    margin-right: 5px;
+}
+
+
+.bodyofcarroussel p {
+    font-size: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word; /* Ajouté pour assurer le passage à la ligne */
+    display: -webkit-box; /* Utilise le modèle de boîte flexible */
+    -webkit-box-orient: vertical; /* Définit l'orientation verticale */
+    -webkit-line-clamp: 3; /* Nombre maximum de lignes avant l'ajout des ellipses */
+    overflow: hidden; /* Cache tout texte qui dépasse */
+    position: relative; /* Pour positionner le lien "voir plus" */
+}
+
+.see-more {
+    display: none; /* Masque par défaut */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white; /* Ajoutez un fond blanc pour rendre le texte lisible */
+    padding-left: 5px;
+    color: blue; /* Couleur du lien "voir plus" */
+    cursor: pointer;
+}
+
+.card.expanded .bodyofcarroussel {
+    height: auto; /* Permet de voir tout le texte */
+}
+
+.card.expanded .see-more {
+    display: none; /* Masque le lien "voir plus" lorsqu'il est développé */
 }
