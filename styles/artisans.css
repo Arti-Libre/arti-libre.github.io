@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .headerglobal {
+    margin-top: 20px;
+    margin-bottom: 20px;
     height: 120px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
     padding: 0 50px;
-    /* Padding sur les côtés */
 }
 
 .headerglobal img {
@@ -116,7 +117,7 @@
     text-align: center;
     font-family: Montserrat, sans-serif;
     font-size: 17px;
-    background: linear-gradient(to right, #44defa, #44abfc);
+    background: #003ab8;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -171,7 +172,7 @@
 }
 
 .buttons button {
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+    background: #003ab8;
     border: none;
     box-shadow: none;
     outline: none;
@@ -414,6 +415,8 @@ textarea {
     border-width: 0.5px;
     font-family: Montserrat, sans-serif;
     border-radius: 5px;
+    background: #003ab8;
+    color: white;
 }
 
 .leftcolumnforms .submitform:focus {
@@ -421,8 +424,6 @@ textarea {
 }
 
 .leftcolumnforms .submitform:hover {
-    background: linear-gradient(to right, #44defa, #44abfc);
     border-color: white;
     color: white;
-    transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
