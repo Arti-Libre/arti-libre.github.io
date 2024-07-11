@@ -529,16 +529,25 @@ footer {
     background-color: #26334f;
     color: white;
     font-family: Montserrat, sans-serif;
+    display: flex;
 }
 
 .footerglobal {
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+}
+
+.footerglobal div {
+    margin-right: 50px;
 }
 
 .column1 {
     display: flex;
     flex-direction: column;
     height: 300px;
+    width: 230px;
 }
 
 .socials {
@@ -547,4 +556,80 @@ footer {
 
 .socials i {
     font-size: 25px;
+    margin-right: 10px;
+}
+
+.column2 a {
+    display: block;
+    margin-bottom: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    width: 230px;
+}
+
+.column3 .sendmail a {
+    text-decoration: none;
+    color: white;
+}
+
+.column3 {
+    width: 230px;
+}
+
+.column3 p {
+    margin-bottom: 20px;
+}
+
+.column4 {
+    width: 230px;
+}
+
+.column4 .sendmail a {
+    text-decoration: none;
+    color: white;
+}
+
+.column4 .sendmail i {
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Ajuster selon le besoin */
+    height: 476px; /* Assurez-vous de la hauteur suffisante */
+    background-color: #26334f;
+    color: white;
+    font-family: Montserrat, sans-serif;
+}
+
+.footerglobal {
+    max-width: 1275px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.cgus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* Pour aligner en bas */
+    width: 100%; /* Assurez-vous que la largeur occupe tout le footer */
+    padding: 20px 0; /* Ajoute un peu d'espace autour du contenu */
+    font-size: 14px; /* Ajustez la taille de la police au besoin */
+}
+
+.cgus a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px; /* Espace entre les liens */
+}
+
+.cgus p {
+    color: white;
+    margin: 0 10px; /* Espace autour des paragraphes */
 }
