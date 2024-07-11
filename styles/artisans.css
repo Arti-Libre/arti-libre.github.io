@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .headerglobal {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    max-width: 1275px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     height: 120px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
     padding: 0 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .headerglobal img {
@@ -18,17 +21,25 @@
 .clickables {
     display: flex;
     flex: 1;
-    justify-content: center;
+    margin-left: 50px;
+    font-weight: bold;
     font-family: Montserrat, sans-serif;
 }
 
 .clickables p {
-    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.clickables p:hover {
+    color: #003ab8;
+    cursor: pointer;
 }
 
 .headerglobal .buttons {
     display: flex;
     justify-content: flex-end;
+    font-weight: bold;
+    color: #003ab8;
     /* Aligne les boutons à droite */
 }
 
@@ -177,6 +188,7 @@
 }
 
 .buttons button {
+    font-weight: bold;
     background: #003ab8;
     border: none;
     box-shadow: none;
@@ -187,10 +199,12 @@
     font-size: 15px;
     margin-right: 15px;
     padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
     border-radius: 5px;
 }
 
-.buttons button:hover{
+.buttons button:hover {
     background-color: #0544cb;
 }
 
