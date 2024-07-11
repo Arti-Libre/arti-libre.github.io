@@ -159,6 +159,10 @@
     margin-top: -10px;
 }
 
+.certficiations i {
+    color: #003ab8;
+}
+
 .certficiations p {
     margin-left: 15px;
     font-family: Montserrat, sans-serif;
@@ -169,6 +173,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .buttons button {
@@ -185,6 +190,9 @@
     border-radius: 5px;
 }
 
+.buttons button:hover{
+    background-color: #0544cb;
+}
 
 .buttons p {
     font-family: Montserrat, sans-serif;
@@ -312,9 +320,21 @@
 
 .bodyrighdownbloc {
     padding: 50px;
+    padding-top: 30px;
     font-family: Montserrat, sans-serif;
     display: flex;
     flex-direction: column;
+}
+
+.bodyrighdownbloc i {
+    color: #003ab8;
+}
+
+.bodyrighdownbloc h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
 .bodyrighdownbloc .left {
@@ -419,11 +439,67 @@ textarea {
     color: white;
 }
 
-.leftcolumnforms .submitform:focus {
-    outline: none;
+.leftcolumnforms .submitform:hover {
+    background-color: #0544cb;
+    border-color: white;
+    color: white;
 }
 
-.leftcolumnforms .submitform:hover {
+.rightcolumnofforms {
+    margin-top: 25px;
+    box-shadow: 0px 3px 9px lightgray;
+    width: 627.5px;
+    height: 700px;
+    border-radius: 15px;
+}
+
+.rightcolumnofforms .top {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+}
+
+
+.rightcolumnofforms .form {
+    font-family: Montserrat, sans-serif;
+    padding: 50px;
+}
+
+.rightcolumnofforms label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.rightcolumnofforms input,
+select,
+textarea {
+    padding: 8px;
+    width: 500px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.rightcolumnofforms .submitform {
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-width: 0.5px;
+    font-family: Montserrat, sans-serif;
+    border-radius: 5px;
+    background: #003ab8;
+    color: white;
+}
+
+.rightcolumnofforms .submitform:hover {
+    background-color: #0544cb;
     border-color: white;
     color: white;
 }

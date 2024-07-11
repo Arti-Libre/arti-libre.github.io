@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Artisan</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/artisans.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -87,18 +88,19 @@
                 </div>
                 <div class="rightdownbloc">
                     <div class="bodyrighdownbloc">
+                        <h1>Contacter</h1>
                         <div class="topbodyrighdownbloc">
                             <div class="left">
                                 <i class="fa-solid fa-phone"></i>
 
-                                <a href="tel:02.40.45.43.22">
-                                    <p>02.40.45.43.22</p>
+                                <a href="tel:02.51.10.66.45">
+                                    <p>02.51.10.66.45</p>
                                 </a>
 
                             </div>
                             <div class="right">
                                 <i class="fa-solid fa-envelope"></i>
-                                <a href="#previousworking">
+                                <a href="#forms">
                                     <p>Envoyer une demande de contact</p>
                                 </a>
                             </div>
@@ -107,14 +109,14 @@
                         <div class="bottombodyrightdownbloc">
                             <div class="left">
                                 <i class="fa-solid fa-map-pin"></i>
-                                <a href="https://www.google.com/maps?q=labauleescoublac">
+                                <a href="https://www.google.com/maps?q=labauleescoublac" target="_blank">
                                     <p>La Baule</p>
                                 </a>
                             </div>
                             <div class="right">
                                 <i class="fa-solid fa-phone-flip"></i>
-                                <a href="mailto:02.40.45.43.22">
-                                    <p>devis@assist-renov.com</p>
+                                <a href="#forms">
+                                    <p>Être rappelé</p>
                                 </a>
                             </div>
                         </div>
@@ -129,7 +131,7 @@
         </div>
         <div class="previousworking" id="previousworking">
             <div class="top">
-                <h1>Précédents chantiers</h1>
+                <h1>Précédents <span style="color: #003ab8;">chantiers</span></h1>
             </div>
             <div class="caroussel">
                 <iframe src="caroussel.html" frameborder="0"></iframe>
@@ -145,7 +147,7 @@
         </div>
         <div class="aboutwork">
             <div class="top">
-                <h1>A propos du métier...</h1>
+                <h1>A propos du <span style="color: #003ab8;">métier</span>...</h1>
                 <p>Le métier de maçon consiste à construire et rénover des structures en briques, pierres ou parpaings.
                     Il interprète des plans, prépare les fondations et monte les murs en respectant les normes de
                     sécurité. Le maçon réalise également des travaux de finition, comme les enduits et les dallages.
@@ -158,7 +160,7 @@
 
         </div>
 
-        <div class="forms">
+        <div class="forms" id="forms">
             <div class="leftcolumnforms" id="contact">
                 <div class="top">
                     <h1>Contacter</h1>
@@ -183,7 +185,26 @@
             </div>
 
             <div class="rightcolumnofforms">
+                <div class="top">
+                    <h1>Être rappelé</h1>
+                </div>
+                <div class="form">
+                    <form action="">
+                        <label for="nom">Votre Prénom :</label><br>
+                        <input type="text" id="nom" name="nom" required><br><br>
 
+                        <label for="prenom">Votre Nom :</label><br>
+                        <input type="text" id="prenom" name="prenom" required><br><br>
+
+                        <label for="email">Votre Numéro de téléphone :</label><br>
+                        <input type="tel" id="tel" name="tel" required><br><br>
+
+                        <label for="message">Message :</label><br>
+                        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+
+                        <input type="submit" value="Envoyer" class="submitform">
+                    </form>
+                </div>
             </div>
 
         </div>
