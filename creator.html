@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Page Artisan</title>
+    <link rel="stylesheet" href="styles/artisans.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="headerglobal">
+            <img src="/images/logo-arti-libre.png" alt="">
+            <div class="clickables">
+                <p>Artisans</p>
+                <p>Contact</p>
+            </div>
+            <div class="buttons">
+                <button>Devenir Artisan</button>
+                <p>Se connecter</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h1>Créer une Page Artisan</h1>
+            <form id="artisanForm">
+                <label for="nom">Nom :</label><br>
+                <input type="text" id="nom" name="nom" required><br><br>
+
+                <label for="bio">Bio :</label><br>
+                <textarea id="bio" name="bio" rows="4" cols="50" required></textarea><br><br>
+
+                <label for="photo">URL de la Photo de Profil :</label><br>
+                <input type="text" id="photo" name="photo" required><br><br>
+
+                <label for="entreprise">Nom de l'Entreprise :</label><br>
+                <input type="text" id="entreprise" name="entreprise" required><br><br>
+
+                <label for="description">Description de l'Entreprise :</label><br>
+                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+                <label for="metier">Métier :</label><br>
+                <input type="text" id="metier" name="metier" required><br><br>
+
+                <label for="diplomes">Diplômes :</label><br>
+                <input type="text" id="diplomes" name="diplomes" required><br><br>
+
+                <label for="logo">URL du Logo de l'Entreprise :</label><br>
+                <input type="text" id="logo" name="logo" required><br><br>
+
+                <label for="profession">Profession de l'Entreprise :</label><br>
+                <input type="text" id="profession" name="profession" required><br><br>
+
+                <label for="ville">Localité (Ville) :</label><br>
+                <input type="text" id="ville" name="ville" required><br><br>
+
+                <input type="submit" value="Générer la Page">
+            </form>
+        </div>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('artisanForm').onsubmit = function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.text())
+                .then(result => {
+                    document.getElementById('result').innerHTML = result;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        };
+    </script>
+</body>
+
+</html>
