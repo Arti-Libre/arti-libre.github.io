@@ -1,12 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arti-Libre</title>
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles/index.css">
+  <link href="/styles/icons/css/fontawesome.css" rel="stylesheet" />
+  <link href="/styles/icons/css/brands.css" rel="stylesheet" />
+  <link href="/styles/icons/css/solid.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="scripts/burger_menu.js"></script>
+
 </head>
+
 <body>
-  
+
+  <!-- Navbar -->
+
+  <header>
+    <div class="headerglobal">
+      <img src="/images/logo-arti-libre.png" alt="">
+      <div class="clickables">
+        <a href="google.fr">Comment ça marche ?</a>
+        <a>Artisans</a>
+        <a>Services</a>
+        <div class="burgermenue">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div class="buttons">
+        <button>Devenir Artisan</button>
+        <p>Se connecter</p>
+      </div>
+    </div>
+  </header>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close">&times;</span>
+      <div class="intopopup">
+        <a href="google.fr">Comment ça marche ?</a>
+        <a>Artisans</a>
+        <a>Services</a>
+        <div class="buttons">
+          <button>Devenir Artisan</button>
+          <p style="color: #003ab8;">Se connecter</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Navbar -->
+
+  <!-- BODY -->
+
+  <div class="globaldiv">
+    <div class="top">
+      <img src="images/arti1.jpeg" alt="">
+      <div class="rectanglenoiropacite"></div>
+      <div class="textsandfield">
+        <h1>Faites appel à un <span style="color: #003ab8;">Maçon</span> qualifié prêt de chez vous !</h1>
+        <div class="textfield-container">
+          <input type="text" class="textfield" placeholder="Quel artisan recherchez-vous ?">
+          <span class="icon-loupe">&#128269;</span> <!-- Code Unicode pour l'icône de loupe -->
+        </div>
+      </div>
+    </div>
+    <div class="services">
+      <div class="topservices">
+        <h1>Nos services</h1>
+      </div>
+
+      <div class="caroussel">
+        <iframe src="caroussel_index/index.html" frameborder="0" scrolling="no"></iframe>
+      </div>
+
+
+
+    </div>
+
+    <div class="whychooseartilibre">
+      <h1 class="title">
+        Pourquoi <span style="color: #003ab8;">Arti-Libre</span> est la solution fiable ?
+      </h1>
+      <p class="soustitre">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+        dolore magna aliquam erat
+        volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+      </p>
+    </div>
+
+    <div class="phoneandtext">
+      <div class="left">
+        <div class="bloctexte">
+          <h2>Les artisans dont vous avez besoin</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+            enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in</p>
+        </div>
+        <div class="bloctexte">
+          <h2>Les artisans dont vous avez besoin</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+            enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in</p>
+        </div>
+        <div class="bloctexte">
+          <h2>Les artisans dont vous avez besoin</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+            nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+            enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in</p>
+        </div>
+      </div>
+      <div class="right">
+        <img src="images/filletel.png" alt="" width="400px">
+      </div>
+    </div>
+
+    <div class="cardsinvert">
+      <div class="cardsinto">
+        <div class="cardleft">
+
+          <div class="left">
+            <div class="picture">
+              <img src="images/worker.jpeg" alt="" width="200px">
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="text">
+              <h2>Un reseau d'<span style="color: #003ab8;">Artisans locaux et professionnels</span> prêt à intervenir
+              </h2>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+                erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                Questions fréquentes
+                Qui est</p>
+              <div class="buttons">
+                <button>En savoir plus...</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="cardleft">
+          <div class="right">
+            <div class="text">
+              <h2>Un reseau d'<span style="color: #003ab8;">Artisans locaux et professionnels</span> prêt à intervenir
+              </h2>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+                erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                Questions fréquentes
+                Qui est</p>
+              <div class="buttons">
+                <button>En savoir plus...</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="left">
+            <div class="picture">
+              <img src="images/worker.jpeg" alt="" width="200px">
+            </div>
+          </div>
+        </div>
+
+        <div class="cardleft">
+
+          <div class="left">
+            <div class="picture">
+              <img src="images/worker.jpeg" alt="" width="200px">
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="text">
+              <h2>Un reseau d'<span style="color: #003ab8;">Artisans locaux et professionnels</span> prêt à intervenir
+              </h2>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+                erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                Questions fréquentes
+                Qui est</p>
+              <div class="buttons">
+                <button>En savoir plus...</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+  </div>
+  </div>
 </body>
+
 </html>

@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  margin: 0;
+}
+
+/*               Header               */
+.headerglobal {
+  max-width: 1275px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headerglobal img {
+  height: 100px;
+}
+
+.clickables {
+  display: flex;
+  flex: 1;
+  margin-left: 50px;
+  font-weight: bold;
+  font-family: Montserrat, sans-serif;
+}
+
+.clickables a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.clickables a:hover {
+  color: #003ab8;
+  cursor: pointer;
+}
+
+.headerglobal .buttons {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  color: #003ab8;
+  /* Aligne les boutons à droite */
+}
+
+.headerglobal .buttons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.headerglobal .buttons button {
+  font-weight: bold;
+  background: #003ab8;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  margin-right: 15px;
+  padding: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 5px;
+}
+
+.headerglobal .buttons button:hover {
+  background-color: #0544cb;
+}
+
+.headerglobal .buttons p {
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+}
+
+
+
+
+.burgermenue {
+  display: none;
+}
+
+.burgermenue i {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 30px;
+}
+
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
+  text-align: center;
+  /* Pour centrer l'image horizontalement */
+}
+
+.popup-content {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.close {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  cursor: pointer;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.popup-content {
+  position: absolute;
+  display: grid;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px;
+  box-sizing: border-box;
+  height: 500px;
+  font-family: Montserrat, sans-serif;
+  border-radius: 15px;
+}
+
+.intopopup {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: grid;
+}
+
+.popup-content a {
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: gray;
+  font-size: 35px;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1028px) {
+
+  .buttons {
+    display: block;
+    font-weight: bold;
+  }
+
+  .headerglobal .buttons {
+    display: none;
+  }
+
+  .buttons button {
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+
+  .burgermenue {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .clickables>a {
+    display: none;
+  }
+
+  .headerglobal {
+    max-width: 900px;
+  }
+}
+
+
+/*               Header               */
+
+/*                Body                */
+
+.globaldiv {
+  margin: auto;
+}
+
+.globaldiv .top {
+  height: 410px;
+  overflow: hidden;
+  position: relative;
+}
+
+.globaldiv .top .rectanglenoiropacite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.globaldiv .top .textsandfield {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 650px;
+  padding-right: 150px;
+}
+
+.globaldiv .top .textsandfield .textfield-container {
+  position: relative;
+  width: 650px;
+  margin-top: 30px;
+}
+
+.globaldiv .top .textsandfield .textfield-container .textfield {
+  width: 100%;
+  height: 30px;
+  padding: 25px 40px 25px 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.globaldiv .top .textsandfield .textfield-container .textfield::placeholder {
+  color: #3560bc;
+  font-family: Montserrat, sans-serif;
+}
+
+.textfield-container .icon-loupe {
+  position: absolute;
+  right: 10px;
+  /* Ajustez cette valeur pour l'espacement horizontal */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  /* Assure que l'icône ne bloque pas les clics dans le champ de texte */
+  font-size: 16px;
+  /* Ajustez la taille de l'icône selon vos besoins */
+}
+
+.textfield {
+  resize: none;
+}
+
+.globaldiv .top h1 {
+  color: white;
+  margin: 0;
+  font-weight: bold;
+  font-family: Montserrat, sans-serif;
+}
+
+.globaldiv .top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+
+
+
+
+.services {
+  margin: 0;
+}
+
+.services .topservices {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 55px;
+
+  font-family: Montserrat, sans-serif;
+  color: #003ab8;
+}
+
+.services .caroussel iframe {
+  width: 100%;
+  height: 600px;
+}
+
+
+.whychooseartilibre {
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+  margin-top: 40px;
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.whychooseartilibre .title {
+  margin-bottom: 40px;
+}
+
+.phoneandtext {
+  display: flex;
+  font-family: Montserrat, sans-serif;
+}
+
+.phoneandtext .left {
+  width: 50%;
+  height: 831px;
+}
+
+.phoneandtext .left h2 {
+  font-size: 40px;
+  border-left: solid #003ab8;
+  padding-left: 20px;
+  border-width: 5px;
+}
+
+.phoneandtext .right {
+  width: 50%;
+  height: 831px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bloctexte {
+  width: 75%;
+  margin-left: auto;
+  margin-top: 70px;
+}
+
+.phoneandtext .right img {
+  margin: auto;
+  display: grid;
+  width: 400px;
+}
+
+
+
+
+
+
+.cardsinvert {
+  margin-top: 110px;
+}
+
+.cardsinto {
+  width: 75%;
+  margin: auto;
+}
+
+.cardsinvert .buttons {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.cardsinvert .buttons button {
+  font-weight: bold;
+  background: #003ab8;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  margin-right: 15px;
+  padding: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 5px;
+}
+
+.cardsinvert .buttons button:hover {
+  background-color: #0544cb;
+}
+
+.cardsinvert .buttons p {
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+}
+
+.cardsinvert .cardleft {
+  font-family: Montserrat, sans-serif;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  height: 300px;
+  margin-top: 100px;
+}
+
+.cardsinvert .cardleft .right {
+  width: 50%;
+  height: 100%;
+}
+
+.cardsinvert .cardleft .left {
+  width: 50%;
+  margin-left: auto;
+  height: 234px;
+  display: flex;
+}
+
+.cardleft {
+  margin-top: 100px;
+}
+
+.cardleft .picture {
+  width: 500px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  margin: auto;
+  align-content: center;
+  justify-content: center;
+}
+
+.cardleft .picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+
+}
+
+.cardsinvert .cardleft .text {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cardleft .text h2 {
+  font-size: 30px;
+}
