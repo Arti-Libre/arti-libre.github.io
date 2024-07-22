@@ -198,14 +198,139 @@
           </div>
         </div>
       </div>
-
-
-
     </div>
 
+    <div class="downloadapp">
+      <div class="container">
+        <div class="left">
+          <div class="intoleft">
+            <div class="textzone">
+              <h2>Téléchargez notre application</h2>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+                erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+                tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+                consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis</p>
+              <div class="platforms">
+                <img src="https://www.travaux.com/app-stores/fr/app-store-badge-android.svg" alt="">
+                <img src="https://www.travaux.com/app-stores/fr/app-store-badge-ios.svg" alt="">
+              </div>
+            </div>
+            <img src="images/iphone.png" alt="" height="470px">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="faqdiv">
+      <section class="faq-section">
+        <h1>Questions fréquentes</h1>
+        <div class="faq-item" style="border-top: 1px solid #ccc;">
+          <div class="faq-question" onclick="toggleAnswer(0)">
+            Qui est l’artisan qui va venir chez moi ?<span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(1)">
+            <p>Dans quelle zone intervient <span class="highlight">Arti-Libre</span> ?</p><span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Arti-Libre intervient dans les zones suivantes : [Liste des zones]</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(2)">
+            Quels types de chantiers sont pris en charge ?<span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Nous prenons en charge les types de chantiers suivants : [Liste des chantiers]</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(3)">
+            Qui contacter en cas de besoin ?<span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>En cas de besoin, vous pouvez contacter : [Coordonnées]</p>
+          </div>
+        </div>
+        <button class="faq-button" onclick="window.location.href='#'">Consulter la FAQ</button>
+      </section>
+    </div>
+    <script>
+      function toggleAnswer(index) {
+        const answers = document.querySelectorAll('.faq-answer');
+        const arrows = document.querySelectorAll('.arrow');
+
+        if (answers[index].style.display === 'block') {
+          answers[index].style.display = 'none';
+          arrows[index].style.transform = 'rotate(0deg)';
+        } else {
+          answers[index].style.display = 'block';
+          arrows[index].style.transform = 'rotate(180deg)';
+        }
+      }
+    </script>
+
+
   </div>
   </div>
-  </div>
+
+  <footer>
+    <div class="footerglobal">
+      <div class="column1">
+        <img src="images/logowhite.png" alt="" width="150px">
+        <p>Slogant</p>
+        <div class="socials">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+          <i class="fa-brands fa-square-x-twitter"></i>
+        </div>
+      </div>
+      <div class="column2">
+        <a href="">Qui sommes-nous ?</a>
+        <a href="">Comment ça marche ?</a>
+        <a href="">Les artisans de la platforme</a>
+      </div>
+      <div class="column3and4">
+        <div class="column3">
+          <p style="margin-top: 0px; color: coral;">Une demande ?</p>
+          <p style="color: gray; line-height: 25px;">Posez à notre équipe vos questions</p>
+          <span class="sendmail"><i class="fa-regular fa-envelope" style="margin-right: 10px;"></i> <a
+              href="mailto:contact@arti-libre.com">contact@arti-libre.com</a></span>
+        </div>
+        <div class="column4">
+          <p style="margin-top: 0px; color: coral;">Professionnel ?</p>
+          <p style="color: gray; line-height: 25px;">Augmentez vos revenus et votre visibilité en devenant
+            professionnel sur Arti-libre</p>
+          <span class="sendmail"><i class="fa-solid fa-circle-info"></i> <a href="">En savoir
+              plus</a></span><br>
+          <span class="sendmail"><i class="fa-regular fa-envelope"></i> <a
+              href="mailto:artisans@arti-libre.com">artisans@arti-libre.com</a></span><br>
+          <span class="sendmail"><i class="fa-solid fa-phone"></i> <a href="tel:0251106645">02.51.10.66.45</a></span>
+        </div>
+      </div>
+
+    </div>
+    <div class="cgus">
+      <a href="">Conditions générales de notes et avis</a>
+      <p>-</p>
+      <a href="">Conditions générales</a>
+      <p>-</p>
+      <a href="">Données personnelles</a>
+      <p>-</p>
+      <a href="">Mentions légales</a>
+    </div>
+  </footer>
 </body>
 
 </html>
