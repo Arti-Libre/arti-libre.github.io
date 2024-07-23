@@ -6,7 +6,7 @@ body {
 
 /*               Header               */
 .headerglobal {
-  max-width: 1275px;
+  width: 1275px;
   margin-top: 30px;
   margin-bottom: 30px;
   height: 120px;
@@ -83,8 +83,41 @@ body {
   font-size: 15px;
 }
 
+.header-scroll {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0 50px;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Ajout de l'ombre portée */
+  background-color: white;
+  opacity: 0;
+  /* Réglez l'opacité à 0 pour cacher le header */
+  transition: opacity 0.3s ease;
+  /* Ajout d'une transition d'opacité */
+}
 
+.header-scroll.visible {
+  opacity: 1;
+  max-height: 120px;
+}
 
+.header-scroll {
+  color: #fff;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .burgermenue {
   display: none;
@@ -240,6 +273,11 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+
+
+
+
+
 .globaldiv .top .textsandfield {
   position: absolute;
   top: 50%;
@@ -286,6 +324,29 @@ body {
 .textfield {
   resize: none;
 }
+
+.textfield-container {
+  position: relative;
+  display: inline-block;
+}
+
+.textfield-container input {
+  padding-right: 20px;
+}
+
+.textfield-container .arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; 
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+
+
 
 .globaldiv .top h1 {
   color: white;
@@ -468,15 +529,31 @@ body {
 }
 
 .cardsinvert .cardleft .text {
-  width: 75%;
+  width: 100%;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: 10px;
+  max-width: 676px;
 }
 
 .cardleft .text h2 {
   font-size: 30px;
 }
 
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide {
+  animation: slideDown 0.5s ease-in-out;
+}
 
 
 
@@ -517,8 +594,9 @@ body {
 }
 
 .downloadapp .platforms img {
-  height: 65px;
+  height: 45px;
   margin-top: 25px;
+  margin-right: 15px;
 }
 
 .downloadapp .textzone {

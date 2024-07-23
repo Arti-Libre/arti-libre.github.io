@@ -12,7 +12,22 @@
   <link href="/styles/icons/css/solid.css" rel="stylesheet" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="scripts/burger_menu.js"></script>
+  <script>
+    let isHeaderVisible = false;
 
+    window.addEventListener('scroll', function () {
+      var header = document.querySelector('.header-scroll'); // Correction ici
+      var headerHeight = header.offsetHeight;
+
+      if (window.scrollY > headerHeight && !isHeaderVisible) { // Correction ici
+        header.classList.add('visible');
+        isHeaderVisible = true;
+      } else if (window.scrollY <= headerHeight && isHeaderVisible) { // Correction ici
+        header.classList.remove('visible');
+        isHeaderVisible = false;
+      }
+    });
+  </script>
 </head>
 
 <body>
@@ -21,7 +36,7 @@
 
   <header>
     <div class="headerglobal">
-      <img src="/images/logo-arti-libre.png" alt="">
+      <a href="/"><img src="/images/logo-arti-libre.png" alt=""></a>
       <div class="clickables">
         <a href="google.fr">Comment ça marche ?</a>
         <a>Artisans</a>
@@ -36,6 +51,24 @@
       </div>
     </div>
   </header>
+
+  <div class="header-scroll">
+    <div class="headerglobal">
+      <a href="/"><img src="/images/logo-arti-libre.png" alt=""></a>
+      <div class="clickables">
+        <a href="google.fr">Comment ça marche ?</a>
+        <a>Artisans</a>
+        <a>Services</a>
+        <div class="burgermenue">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div class="buttons">
+        <button>Devenir Artisan</button>
+        <p>Se connecter</p>
+      </div>
+    </div>
+  </div>
 
   <div id="popup" class="popup">
     <div class="popup-content">
@@ -62,13 +95,31 @@
       <img src="images/arti1.jpeg" alt="">
       <div class="rectanglenoiropacite"></div>
       <div class="textsandfield">
-        <h1>Faites appel à un <span style="color: #003ab8;">Maçon</span> qualifié prêt de chez vous !</h1>
+        <h1>Besoin de faire des travaux ? Trouvez un <span id="changing-word" style="color: #c0d2f9;">Maçon</span></h1>
         <div class="textfield-container">
           <input type="text" class="textfield" placeholder="Quel artisan recherchez-vous ?">
-          <span class="icon-loupe">&#128269;</span> <!-- Code Unicode pour l'icône de loupe -->
+          <span class="arrow" style="color: #003ab8;">➔</span>
         </div>
       </div>
     </div>
+
+    <script>
+      const words = ["Maçon", "Plombier", "Électricien", "Menuisier", "Peintre"];
+      let currentIndex = 0;
+      const changingWordElement = document.getElementById("changing-word");
+
+      function changeWord() {
+        currentIndex = (currentIndex + 1) % words.length;
+        changingWordElement.textContent = words[currentIndex];
+        changingWordElement.classList.add("slide");
+
+        setTimeout(() => {
+          changingWordElement.classList.remove("slide");
+        }, 500); // Durée de l'animation
+      }
+
+      setInterval(changeWord, 1500);
+    </script>
     <div class="services">
       <div class="topservices">
         <h1>Nos services</h1>
