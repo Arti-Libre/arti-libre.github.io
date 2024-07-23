@@ -309,18 +309,6 @@ body {
   font-family: Montserrat, sans-serif;
 }
 
-.textfield-container .icon-loupe {
-  position: absolute;
-  right: 10px;
-  /* Ajustez cette valeur pour l'espacement horizontal */
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  /* Assure que l'icône ne bloque pas les clics dans le champ de texte */
-  font-size: 16px;
-  /* Ajustez la taille de l'icône selon vos besoins */
-}
-
 .textfield {
   resize: none;
 }
@@ -332,20 +320,22 @@ body {
 
 .textfield-container input {
   padding-right: 40px;
+  box-sizing: border-box;
 }
 
 .textfield-container .arrow {
   position: absolute;
   right: 20px;
-  top: 50%;
+  top: 51%;
   transform: translateY(-50%);
-  pointer-events: none; 
   font-size: 22px;
   text-decoration: none;
-  z-index: 1;
+  z-index: 10;
+  color: #003ab8;
 }
 
 .textfield-container .arrow:hover{
+  color: #c0d2f9;
   cursor: pointer;
 }
 
@@ -413,7 +403,7 @@ body {
 
 .phoneandtext .left {
   width: 50%;
-  height: 831px;
+  height: 100%;
 }
 
 .phoneandtext .left h2 {
@@ -425,16 +415,17 @@ body {
 
 .phoneandtext .right {
   width: 50%;
-  height: 831px;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 960px;
 }
 
 .bloctexte {
   width: 75%;
   margin-left: auto;
   margin-top: 70px;
+  max-width: 635px;
 }
 
 .phoneandtext .right img {
@@ -497,16 +488,17 @@ body {
   align-items: center;
   height: 300px;
   margin-top: 100px;
+  justify-content: center;
 }
 
 .cardsinvert .cardleft .right {
   width: 50%;
   height: 100%;
+  max-width: 677px;
 }
 
 .cardsinvert .cardleft .left {
   width: 50%;
-  margin-left: auto;
   height: 234px;
   display: flex;
 }
@@ -537,12 +529,14 @@ body {
   width: 100%;
   margin-right: auto;
   margin-left: 10px;
-  max-width: 676px;
+  max-width: 500px;
 }
 
 .cardleft .text h2 {
   font-size: 30px;
 }
+
+
 
 @keyframes slideDown {
   0% {
