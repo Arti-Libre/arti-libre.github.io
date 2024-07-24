@@ -334,7 +334,7 @@ body {
   color: #003ab8;
 }
 
-.textfield-container .arrow:hover{
+.textfield-container .arrow:hover {
   color: #c0d2f9;
   cursor: pointer;
 }
@@ -656,9 +656,11 @@ body {
 
 .faqdiv .faq-answer {
   display: none;
-  padding: 15px;
+  padding: 25px;
   background-color: #f9f9f9;
   animation: fadeIn 0.3s ease forwards;
+  margin-bottom: 15px;
+  margin-top: 25px;
 }
 
 @keyframes fadeIn {
