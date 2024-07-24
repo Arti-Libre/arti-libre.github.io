@@ -397,7 +397,7 @@ body {
 .phoneandtext {
   display: flex;
   font-family: Montserrat, sans-serif;
-  width: 75%;
+  width: 100%;
   margin: auto;
 }
 
@@ -444,7 +444,7 @@ body {
 }
 
 .cardsinto {
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 
@@ -488,7 +488,6 @@ body {
   align-items: center;
   height: 300px;
   margin-top: 100px;
-  justify-content: center;
 }
 
 .cardsinvert .cardleft .right {
@@ -515,6 +514,7 @@ body {
   margin: auto;
   align-content: center;
   justify-content: center;
+  margin-right: 70px;
 }
 
 .cardleft .picture img {
@@ -522,7 +522,6 @@ body {
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
-
 }
 
 .cardsinvert .cardleft .text {
