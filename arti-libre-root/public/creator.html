@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créateur de pages HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .editor {
+            margin-bottom: 20px;
+        }
+
+        .page {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Créateur de pages HTML</h1>
+    <div class="editor">
+        <textarea id="content" rows="4" cols="50" placeholder="Entrez votre contenu HTML ici..."></textarea><br>
+        <button id="createPage">Créer une nouvelle page</button>
+    </div>
+    <div id="pagesContainer"></div>
+
+    <script>
+        document.getElementById('createPage').addEventListener('click', function () {
+            const content = document.getElementById('content').value;
+
+            if (content.trim() === "") {
+                alert("Le contenu ne peut pas être vide.");
+                return;
+            }
+
+            const pageData = { content: content };
+
+            fetch('/createPage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(pageData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Page créée avec succès');
+                    } else {
+                        alert('Erreur lors de la création de la page');
+                    }
+                })
+                .catch(error => console.error('Erreur:', error));
+
+            document.getElementById('content').value = '';
+        });
+    </script>
+</body>
+
+</html>
