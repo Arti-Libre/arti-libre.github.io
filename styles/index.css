@@ -528,7 +528,7 @@ body {
   width: 100%;
   margin-right: auto;
   margin-left: 10px;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .cardleft .text h2 {
@@ -620,12 +620,14 @@ body {
 
 .faqdiv {
   font-family: Montserrat, sans-serif;
+  margin: auto;
 }
 
 .faqdiv .faq-section {
   width: 60%;
   margin: auto;
   padding: 20px;
+  max-width: 1768px;
 }
 
 .faqdiv h1 {
