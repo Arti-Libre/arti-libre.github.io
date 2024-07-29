@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charte</title>
+    <script src="scripts/burger_menu.js"></script>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/index.css">
+    <script>
+        let isHeaderVisible = false;
+    
+        window.addEventListener('scroll', function () {
+          var header = document.querySelector('.header-scroll'); // Correction ici
+          var headerHeight = header.offsetHeight;
+    
+          if (window.scrollY > headerHeight && !isHeaderVisible) { // Correction ici
+            header.classList.add('visible');
+            isHeaderVisible = true;
+          } else if (window.scrollY <= headerHeight && isHeaderVisible) { // Correction ici
+            header.classList.remove('visible');
+            isHeaderVisible = false;
+          }
+        });
+      </script>
+</head>
+<body>
+
+    <header>
+        <div class="headerglobal">
+          <a href="/"><img src="images/logo-arti-libre.png" alt=""></a>
+          <div class="clickables">
+            <a href="google.fr">Comment ça marche ?</a>
+            <a>Artisans</a>
+            <a>Services</a>
+            <div class="burgermenue">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </div>
+          <div class="buttons">
+            <button>Devenir Artisan</button>
+            <p>Se connecter</p>
+          </div>
+        </div>
+      </header>
+    
+      <div class="header-scroll">
+        <div class="headerglobal">
+          <a href="/"><img src="images/logo-arti-libre.png" alt=""></a>
+          <div class="clickables">
+            <a href="google.fr">Comment ça marche ?</a>
+            <a>Artisans</a>
+            <a>Services</a>
+            <div class="burgermenue">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </div>
+          <div class="buttons">
+            <button>Devenir Artisan</button>
+            <p>Se connecter</p>
+          </div>
+        </div>
+      </div>
+    
+</body>
+</html>
