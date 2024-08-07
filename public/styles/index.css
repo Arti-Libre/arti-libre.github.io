@@ -220,7 +220,7 @@ body {
   text-decoration: none;
 }
 
-@media screen and (max-width: 1028px) {
+@media screen and (max-width: 1333px) {
 
   .buttons {
     display: block;
@@ -246,7 +246,7 @@ body {
   }
 
   .headerglobal {
-    max-width: 900px;
+    max-width: 80%;
   }
 }
 
