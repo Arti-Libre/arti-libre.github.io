@@ -240,6 +240,9 @@ body {
     display: flex;
     margin-left: auto;
   }
+  .burgermenue:hover{
+    cursor: pointer;
+  }
 
   .clickables>a {
     display: none;
