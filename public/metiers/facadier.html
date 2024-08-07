@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Façadier</title>
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <script src="../scripts/burger_menu.js"></script>
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/typepages.css">
+    <link rel="stylesheet" href="../styles/arti.css">
+    <link href="../styles/icons/css/fontawesome.css" rel="stylesheet" />
+    <link href="../styles/icons/css/brands.css" rel="stylesheet" />
+    <link href="../styles/icons/css/solid.css" rel="stylesheet" />
+    <script>
+        let isHeaderVisible = false;
+
+        window.addEventListener('scroll', function () {
+            var header = document.querySelector('.header-scroll'); // Correction ici
+            var headerHeight = header.offsetHeight;
+
+            if (window.scrollY > headerHeight && !isHeaderVisible) { // Correction ici
+                header.classList.add('visible');
+                isHeaderVisible = true;
+            } else if (window.scrollY <= headerHeight && isHeaderVisible) { // Correction ici
+                header.classList.remove('visible');
+                isHeaderVisible = false;
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="headerglobal">
+            <a href="/"><img src="../images/logo-arti-libre.png" alt=""></a>
+            <div class="clickables">
+                <a href="google.fr">Comment ça marche ?</a>
+                <a>Artisans</a>
+                <a>Services</a>
+                <div class="burgermenue">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <div class="buttons">
+                <button>Devenir Artisan</button>
+                <p>Se connecter</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-scroll">
+        <div class="headerglobal">
+            <a href="/"><img src="../images/logo-arti-libre.png" alt=""></a>
+            <div class="clickables">
+                <a href="google.fr">Comment ça marche ?</a>
+                <a>Artisans</a>
+                <a>Services</a>
+                <div class="burgermenue" id="scroll">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <div class="buttons">
+                <button>Devenir Artisan</button>
+                <p>Se connecter</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div class="intopopup">
+                <a href="google.fr">Comment ça marche ?</a>
+                <a>Artisans</a>
+                <a>Services</a>
+                <div class="buttons">
+                    <button>Devenir Artisan</button>
+                    <p style="color: #003ab8;">Se connecter</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preset page by ARTI-LIBRE -->
+
+    <div class="sectionprincipale">
+        <div class="top">
+            <img src="../caroussel_index/images/facadier.jpeg" alt="">
+            <div class="rectanglenoiropacite"></div>
+            <div class="textsandfield">
+                <h1>Façadier</h1>
+            </div>
+        </div>
+        <div class="whatisthat">
+            <h2><span style="color: #003ab8;">Plombier</span> c'est quoi ?</h2>
+            <p>Un façadier est un spécialiste des façades, essentiel pour l’isolation thermique et phonique des
+                bâtiments. Il améliore l’esthétique en appliquant enduits et peintures, et s’occupe aussi de l’entretien
+                et de la rénovation des façades. De plus, il protège les murs extérieurs contre l’humidité et les
+                graffitis. En somme, il garantit la durabilité, l’efficacité énergétique et l’apparence des
+                constructions.
+            </p>
+        </div>
+        <div class="whatisthat">
+            <h2>Certains de nos <span style="color: #003ab8;">Plombier</span></h2>
+            <div class="cardsworker">
+                <div class="cardworker">
+                    <div class="card-header">
+                        <img src="../images/filletel.png" alt="Thermo service" class="card-image">
+                        <div class="card-title">
+                            <h3>Thermo service</h3>
+                            <div class="rating">
+                                <span style="color: #003ab8;"><i class="fa-solid fa-star"></i></span> <strong style="color: black;">4.8</strong><span style="color: black;">/5</span> (15 avis)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elemen Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button>Voir la page</button>
+                    </div>
+                </div>
+
+                <div class="cardworker">
+                    <div class="card-header">
+                        <img src="../images/filletel.png" alt="Thermo service" class="card-image">
+                        <div class="card-title">
+                            <h3>Thermo service</h3>
+                            <div class="rating">
+                                <span style="color: #003ab8;"><i class="fa-solid fa-star"></i></span> <strong style="color: black;">4.8</strong><span style="color: black;">/5</span> (15 avis)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elemen Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button>Voir la page</button>
+                    </div>
+                </div>
+
+                <div class="cardworker">
+                    <div class="card-header">
+                        <img src="../images/filletel.png" alt="Thermo service" class="card-image">
+                        <div class="card-title">
+                            <h3>Thermo service</h3>
+                            <div class="rating">
+                                <span style="color: #003ab8;"><i class="fa-solid fa-star"></i></span> <strong style="color: black;">4.8</strong><span style="color: black;">/5</span> (15 avis)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elemen Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button>Voir la page</button>
+                    </div>
+                </div>
+                <div class="cardworker">
+                    <div class="card-header">
+                        <img src="../images/filletel.png" alt="Thermo service" class="card-image">
+                        <div class="card-title">
+                            <h3>Thermo service</h3>
+                            <div class="rating">
+                                <span style="color: #003ab8;"><i class="fa-solid fa-star"></i></span> <strong style="color: black;">4.8</strong><span style="color: black;">/5</span> (15 avis)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elemen Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button>Voir la page</button>
+                    </div>
+                </div>
+                <div class="cardworker">
+                    <div class="card-header">
+                        <img src="../images/filletel.png" alt="Thermo service" class="card-image">
+                        <div class="card-title">
+                            <h3>Thermo service</h3>
+                            <div class="rating">
+                                <span style="color: #003ab8;"><i class="fa-solid fa-star"></i></span> <strong style="color: black;">4.8</strong><span style="color: black;">/5</span> (15 avis)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elemen Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button>Voir la page</button>
+                    </div>
+                </div>
+                <div class="cardworker">
+                    <div class="card-header">
+                        <img src="../images/filletel.png" alt="Thermo service" class="card-image">
+                        <div class="card-title">
+                            <h3>Thermo service</h3>
+                            <div class="rating">
+                                <span style="color: #003ab8;"><i class="fa-solid fa-star"></i></span> <strong style="color: black;">4.8</strong><span style="color: black;">/5</span> (15 avis)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elemen Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                    </div>
+                    <div class="card-footer">
+                        <button>Voir la page</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+        <div class="footerglobal">
+            <div class="column1">
+                <img src="../images/logowhite.png" alt="" width="150px">
+                <p>Slogant</p>
+                <div class="socials">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <i class="fa-brands fa-square-x-twitter"></i>
+                </div>
+            </div>
+            <div class="column2">
+                <a href="">Qui sommes-nous ?</a>
+                <a href="">Comment ça marche ?</a>
+                <a href="">Les artisans de la platforme</a>
+            </div>
+            <div class="column3and4">
+                <div class="column3">
+                    <p style="margin-top: 0px; color: coral;">Une demande ?</p>
+                    <p style="color: gray; line-height: 25px;">Posez à notre équipe vos questions</p>
+                    <span class="sendmail"><i class="fa-regular fa-envelope" style="margin-right: 10px;"></i> <a
+                            href="mailto:contact@arti-libre.com">contact@arti-libre.com</a></span>
+                </div>
+                <div class="column4">
+                    <p style="margin-top: 0px; color: coral;">Professionnel ?</p>
+                    <p style="color: gray; line-height: 25px;">Augmentez vos revenus et votre visibilité en devenant
+                        professionnel sur Arti-libre</p>
+                    <span class="sendmail"><i class="fa-solid fa-circle-info"></i> <a href="">En savoir
+                            plus</a></span><br>
+                    <span class="sendmail"><i class="fa-regular fa-envelope"></i> <a
+                            href="mailto:artisans@arti-libre.com">artisans@arti-libre.com</a></span><br>
+                    <span class="sendmail"><i class="fa-solid fa-phone"></i> <a
+                            href="tel:0251106645">02.51.10.66.45</a></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="cgus">
+            <a href="">Conditions générales de notes et avis</a>
+            <p>-</p>
+            <a href="">Conditions générales</a>
+            <p>-</p>
+            <a href="">Données personnelles</a>
+            <p>-</p>
+            <a href="">Mentions légales</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
