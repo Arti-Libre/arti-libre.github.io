@@ -56,7 +56,7 @@ app.get('/results', (req, res) => {
 
     db.query(sql, allValues, (err, results) => {
         if (err) throw err;
-        res.render('recherche', { results });
+        res.render('recherche', { q: searchTerm, results: results });
     });
 });
 

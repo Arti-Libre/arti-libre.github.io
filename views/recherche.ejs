@@ -7,6 +7,9 @@
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/recherche.css">
+    <link href="styles/icons/css/fontawesome.css" rel="stylesheet" />
+    <link href="styles/icons/css/brands.css" rel="stylesheet" />
+    <link href="styles/icons/css/solid.css" rel="stylesheet" />
     <title>Résultats de la recherche</title>
     <script src="scripts/burger_menu.js"></script>
     <script>
@@ -83,10 +86,28 @@
 
 
     <!-- Navbar -->
-    <div class="results-container">
-        <h1>Résultats de la recherche</h1>
-        <% if (results.length> 0) { %>
+    <div class="containeroftext">
+        <div class="textfield-container">
+            <a href="" class="arrow" id="submit"><i class="fa-solid fa-arrow-right"></i></a>
+            <input id="searchInput" idtype="text" value="<%= q %>" class="textfield"
+                placeholder="Quel artisan recherchez-vous ?">
+            <div id="results"></div>
+            <script>
+                document.getElementById('submit').addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const query = document.getElementById('searchInput').value.trim();
+                    if (query) {
+                        window.location.href = `/results?q=${encodeURIComponent(query)}`;
+                    } else {
+                    }
+                });
+            </script>
+        </div>
 
+    </div>
+
+    <div class="results-container">
+        <% if (results.length> 0) { %>
             <% results.forEach(function(item) { %>
                 <div class="result">
                     <img src="<%= item.pp %>" class="profile-image"><br>
@@ -101,15 +122,12 @@
                                     Numéro de téléphone: <%= item.numero %>
                     </div>
                 </div>
-
                 <% }); %>
-
-
-
                     <% } else { %>
                         <p>Aucun résultat trouvé.</p>
                         <% } %>
     </div>
+
 </body>
 
 </html>
