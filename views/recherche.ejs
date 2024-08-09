@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/recherche.css">
     <title>Résultats de la recherche</title>
     <script src="scripts/burger_menu.js"></script>
     <script>
@@ -85,10 +86,12 @@
     <div class="results-container">
         <h1>Résultats de la recherche</h1>
         <% if (results.length> 0) { %>
-            <ul>
-                <% results.forEach(function(item) { %>
-                    <li>
-                        <strong>
+
+            <% results.forEach(function(item) { %>
+                <div class="result">
+                    <img src="<%= item.pp %>" class="profile-image"><br>
+                    <div class="properties">
+                        <strong class="name">
                             <%= item.nom %>
                                 <%= item.prenom %>
                         </strong><br>
@@ -96,12 +99,16 @@
                             Description: <%= item.description %><br>
                                 Ville: <%= item.ville %> <br>
                                     Numéro de téléphone: <%= item.numero %>
-                    </li>
-                    <% }); %>
-            </ul>
-            <% } else { %>
-                <p>Aucun résultat trouvé.</p>
-                <% } %>
+                    </div>
+                </div>
+
+                <% }); %>
+
+
+
+                    <% } else { %>
+                        <p>Aucun résultat trouvé.</p>
+                        <% } %>
     </div>
 </body>
 

@@ -18,7 +18,7 @@
         <div class="headerglobal">
             <img src="/images/logo-arti-libre.png" alt="">
             <div class="clickables">
-                <p>Comment ça marche ?</p>
+                <p>Fonctionnement</p>
                 <p>Artisans</p>
                 <div class="burgermenue">
                     <i class="fa-solid fa-bars"></i>
@@ -46,7 +46,7 @@
     </div>
 
     <div id="popup_img" class="popup">
-        <span class="close">&times;</span>
+        <span class="close" id="close">&times;</span>
         <img class="popup-content" id="popup-img">
     </div>
     <div class="globaldiv">
@@ -61,7 +61,7 @@
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="pres">
-                        <img class="pp" src="images/stephane batic2b.jpg" alt="">
+                        <img class="pp" id="pp" src="images/stephane batic2b.jpg" alt="">
                     </div>
                     <h1>Stéphane Cheneau</h1>
                     <p class="workxcompany">Maçon · Bati C2B
@@ -81,7 +81,7 @@
             <div class="rightcoulumn">
                 <div class="rightbloc">
                     <div class="top">
-                        <img class="pp" src="images/batic2b logo.png" alt="">
+                        <img class="pp" id="pp" src="images/batic2b logo.png" alt="">
                         <div class="presrap">
                             <h1>Bati C2B</h1>
                             <p class="workxcompany">Maçonnerie Paysagère · Maçonnerie </p>
@@ -164,7 +164,7 @@
                 <iframe src="carroussel_avis.html" frameborder="0" style="height: 300px;"></iframe>
             </div>
         </div>
-        <div class="aboutwork">
+        <!-- <div class="aboutwork">
             <div class="top">
                 <h1>A propos du <span style="color: #003ab8;">métier</span>...</h1>
                 <p>Le métier de maçon consiste à construire et rénover des structures en briques, pierres ou parpaings.
@@ -176,8 +176,7 @@
                     opportunités d'emploi dans le secteur du bâtiment, avec des perspectives d'évolution vers des postes
                     de chef de chantier ou d'artisan indépendant.</p>
             </div>
-
-        </div>
+        </div> -->
 
         <div class="forms" id="forms">
             <div class="leftcolumnforms" id="contact">
@@ -299,7 +298,7 @@
         images.forEach(function (image) {
             image.onclick = function () {
                 var imageUrl = this.src; // Obtenir l'URL de l'image cliquée
-                var modal = document.getElementById('popup');
+                var modal = document.getElementById('popup_img');
                 var modalImg = document.getElementById('popup-img');
                 modal.style.display = 'block'; // Afficher le popup
                 modalImg.src = imageUrl; // Afficher l'image dans le popup
@@ -307,7 +306,7 @@
         });
 
         // Fonction pour fermer le popup en cliquant sur la croix
-        document.querySelector('.close').onclick = function () {
+        document.querySelector('#close').onclick = function () {
             document.getElementById('popup').style.display = 'none';
         };
     </script>
@@ -323,7 +322,7 @@
         });
 
         // Fonction pour fermer le popup
-        document.querySelector('.close').onclick = function () {
+        document.querySelector('#close').onclick = function () {
             document.getElementById('popup').style.display = 'none';
         };
     </script>

@@ -39,7 +39,7 @@ app.get('/results', (req, res) => {
     `).join(' + ');
 
     const sql = `
-        SELECT *,
+        SELECT nom, prenom, ville, metier, description, pp,
             ${points} AS total_points
         FROM artisans
         WHERE ${conditions}
@@ -59,6 +59,7 @@ app.get('/results', (req, res) => {
         res.render('recherche', { results });
     });
 });
+
 
 
 
